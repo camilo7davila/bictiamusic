@@ -4,9 +4,8 @@
             <div class="div-register">
                 <button type="button" class="btn btn-outline-primary btn-sm">Registrarse</button>
             </div>
-            <img src="assets/img/login-publicidad.jpg" alt="">
+            <img src="./.././../../../assets/img/login-publicidad.jpg" alt="">
         </div>
-
         <div class="data p-4">
             <div class="title-inicio">
                 <label for="" name="inicio_sesion" class="inicio_sesion">Iniciar sesión</label>
@@ -15,28 +14,26 @@
                 <div class="col-12">
                     <form>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="E-mail">
+                            <input name="email" type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="E-mail"  [(ngModel)]="userFromHTML.email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="exampleInputPassword1"
-                                placeholder="Password">
+                            <input name="password" type="password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password" [(ngModel)]="userFromHTML.password">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="user" placeholder="Usuario">
+                            <input type="text" class="form-control" name="user" placeholder="Usuario" [(ngModel)]="userFromHTML.user">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="firstName" placeholder="Nombre">
+                            <input type="text" class="form-control" name="firstName" placeholder="Nombre" [(ngModel)]="userFromHTML.firstName">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="lastName" placeholder="Apellido">
+                            <input type="text" class="form-control" name="lastName" placeholder="Apellido" [(ngModel)]="userFromHTML.lastName">
                         </div>
-
-                        <button type="submit" class="btn btn-outline-primary btn-sm btn-block">Entrar</button>
+                        <button type="button"  class="btn btn-outline-primary btn-sm btn-block" (click)= "createUser()">Crear</button>
                     </form>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
