@@ -8,8 +8,10 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  getDiscoverFilms(){
+  getUser(){
     const url = 'https://bictiamusic.herokuapp.com/user'
     return this.http.get(url)
   }
+
+  
 }

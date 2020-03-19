@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.authService.getDiscoverFilms().subscribe(data => {
+    this.authService.getUser().subscribe(data => {
       console.log(data) 
     })
   }

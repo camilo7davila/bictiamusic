@@ -1,1 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+   background:#3f3f3f;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   
+}
+
+.publicidad-login{
+    display: grid;
+    grid-row:  span 2;
+}
+
+.publicidad-login img{
+    width: 100%;
+    grid-row: span 2;
+}
+
+.div-register {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding:10px 50px 30px 10px;
+    cursor: pointer;
+}
+
+.publicidad-login{
+    position: relative;
+}
+
+.caja{
+    background: #2d2d2d;
+    margin: 0 auto;
+    max-width: 700px;
+    max-height: 550px;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+
+}
+
+.data{
+    background: white;
+    display: grid;
+    grid-row: span 2;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    padding: 30px;
+}
+
+.logo-login{
+    width: 100%;
+    background: white;
+    text-align: center;
+}
+
+.logo-login img{
+    width:40%;
+}
+
+.title-inicio{
+    font-size: 24px;
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    color: #2d2d2d;
+}
+
+
+
