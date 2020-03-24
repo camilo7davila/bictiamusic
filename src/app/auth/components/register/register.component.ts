@@ -32,7 +32,9 @@ export class RegisterComponent implements OnInit {
       console.log('usuario crado exitosamente',data);
       console.log(data)
       alert('resgistro exitoso')
-       this.router.navigate(['../login/login.component.html'])
-    })
+       this.router.navigate(['/auth/login'])
+    },
+    err => alert(`${err.error.error}`)
+    )
   }
 }
