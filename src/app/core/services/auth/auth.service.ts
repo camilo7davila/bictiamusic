@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/interface/user.interfece';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,28 +10,30 @@ export class AuthService {
 
   private url = 'https://bictiamusic.herokuapp.com'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private router:Router) { }
 
-  getUser(){
-    return this.http.get(this.url+'/user')
+  getUser() {
+    return this.http.get(this.url + '/user')
   }
 
-  createUser(user: User){
-    return this.http.post(this.url+ '/user' , user)
+  createUser(user: User) {
+    return this.http.post(this.url + '/user', user)
   }
 
-  login(user:User){
-    return this.http.post<any>(this.url+'/user/login', user)
+  login(user: User) {
+    return this.http.post<any>(this.url + '/user/login', user)
   }
 
-  loggedIn(){
+  loggedIn() {
 
     if (localStorage.getItem('token')) {
       return true
-    }else{
+    } else {
       return false
     }
-    
+
   }
+
 
 }

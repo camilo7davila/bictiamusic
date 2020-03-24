@@ -15,32 +15,36 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
 
-  userFromHTML:User = {
-    firstName : '',
-    lastName : '',
-    email : '',
-    user : '',
-    password : ''
+  userFromHTML: User = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    user: '',
+    password: ''
   }
 
   constructor(
     private authService: AuthService,
-    private router:Router
-    ) { 
-    
+    private router: Router
+  ) {
+
   }
 
   ngOnInit(): void {
     this.authService.getUser().subscribe(data => {
-      console.log(data) 
+      console.log(data)
     })
   }
 
-  login(){
+  login() {
     this.authService.login(this.userFromHTML)
-    .subscribe(data=>{
-      console.log(data)
-      localStorage.setItem('token',data.message)
-    })
+      .subscribe((data: any) => {
+        console.log(data)
+        localStorage.setItem('token', data.message)
+        this.router.navigate(['/home'])
+        alert('Bievenido')
+      },
+        err => alert(`${err.error.error}`)
+      )
   }
 }
