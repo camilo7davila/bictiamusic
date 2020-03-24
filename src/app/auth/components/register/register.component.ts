@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { User } from 'src/app/interface/user.interfece';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
@@ -17,7 +19,10 @@ export class RegisterComponent implements OnInit {
     password : ''
   };
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +30,9 @@ export class RegisterComponent implements OnInit {
   createUser(){
     this.authService.createUser(this.userFromHTML).subscribe(data => {
       console.log('usuario crado exitosamente',data);
+      console.log(data)
       alert('resgistro exitoso')
+       this.router.navigate(['../login/login.component.html'])
     })
   }
 }

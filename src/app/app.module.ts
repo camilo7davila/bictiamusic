@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HttpClientModule } from '@angular/common/http'; 
+//Guard
+import { GuardGuard } from './core/guard/guard.guard';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [GuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

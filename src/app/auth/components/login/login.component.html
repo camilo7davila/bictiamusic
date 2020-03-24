@@ -19,14 +19,14 @@
                 <div class="col-12">
                     <form>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1"
+                            <input type="email"name="email" class="form-control" [(ngModel)]="userFromHTML.email" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" placeholder="E-mail">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="exampleInputPassword1"
+                            <input type="password" name="password" class="form-control" [(ngModel)]="userFromHTML.password" id="exampleInputPassword1"
                                 placeholder="Password">
                         </div>
-                        <button type="button" class="btn btn-outline-primary btn-sm btn-block">Entrar</button>
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-block" (click)= "login()">Entrar</button>
                     </form>
                     <div>
                         <div>

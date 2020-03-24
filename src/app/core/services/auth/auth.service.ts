@@ -7,17 +7,30 @@ import { User } from 'src/app/interface/user.interfece';
 })
 export class AuthService {
 
+  private url = 'https://bictiamusic.herokuapp.com'
+
   constructor(private http: HttpClient) { }
 
   getUser(){
-    const url = 'https://bictiamusic.herokuapp.com/user'
-    return this.http.get(url)
+    return this.http.get(this.url+'/user')
   }
 
   createUser(user: User){
-    const url = 'https://bictiamusic.herokuapp.com/user'
-    return this.http.post(url, user)
+    return this.http.post(this.url+ '/user' , user)
   }
 
-  
+  login(user:User){
+    return this.http.post<any>(this.url+'/user/login', user)
+  }
+
+  loggedIn(){
+
+    if (localStorage.getItem('token')) {
+      return true
+    }else{
+      return false
+    }
+    
+  }
+
 }
