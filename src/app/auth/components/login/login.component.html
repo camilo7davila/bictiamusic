@@ -31,7 +31,7 @@
                             Debe proporcionar un correo
                          </div>
                          <ng-template #elseEmail >
-                            <div  class="mt-2 alert alert-success p-1 text-center mt-1" role="alert">
+                            <div *ngIf="email.value !==''" class="mt-2 alert alert-success p-1 text-center mt-1" role="alert">
                                 Cumple con las condiciones
                              </div>
                          </ng-template>
