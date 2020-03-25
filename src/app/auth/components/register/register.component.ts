@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     this.authService.createUser(this.userFromHTML).subscribe(data => {
       console.log('usuario crado exitosamente',data);
       console.log(data)
-      alert('resgistro exitoso')
+      swal.fire(`Usuario ${this.userFromHTML.firstName} creado con éxito`,this.alertSweet,'success')
        this.router.navigate(['/auth/login'])
     },
     err => swal.fire(`${err.error.error}`,this.alertSweet,'warning')
