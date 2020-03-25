@@ -3,8 +3,8 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { User } from 'src/app/interface/user.interfece';
 import { Router } from '@angular/router';
-
-
+import { NgForm } from "@angular/forms";
+import swal from 'sweetalert2'
 
 
 @Component({
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  alertSweet:string=''
 
   userFromHTML: User = {
     firstName: '',
@@ -42,9 +43,19 @@ export class LoginComponent implements OnInit {
         console.log(data)
         localStorage.setItem('token', data.message)
         this.router.navigate(['/home'])
-        alert('Bievenido')
+        swal.fire(`Bienvenido ${this.userFromHTML.email}`,this.alertSweet,'success')
       },
-        err => alert(`${err.error.error}`)
+        err => swal.fire(`${err.error.error}`,this.alertSweet,'warning')
       )
   }
+
+  /*
+  PRUEBAS PARA VALIDACIONES
+  guardar(format:NgForm){
+    console.log("Formulario pposteado")
+    console.log("ngform",format)
+    console.log("valor", format.value)
+    console.log(this.userFromHTML)
+  }*/
+
 }

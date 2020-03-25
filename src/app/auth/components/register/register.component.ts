@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { User } from 'src/app/interface/user.interfece';
 import { Router } from '@angular/router';
+import swal from 'sweetalert2'
 
 
 @Component({
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  alertSweet:string=''
 
   userFromHTML: User = {
     firstName : '',
@@ -34,7 +37,7 @@ export class RegisterComponent implements OnInit {
       alert('resgistro exitoso')
        this.router.navigate(['/auth/login'])
     },
-    err => alert(`${err.error.error}`)
-    )
+    err => swal.fire(`${err.error.error}`,this.alertSweet,'warning')
+  )
   }
 }
