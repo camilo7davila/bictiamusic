@@ -1,4 +1,45 @@
 
-  *{
-    box-sizing: border-box;
-  }
+*{
+  box-sizing: border-box;
+}
+
+.contenedor{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 100vw;
+  max-height: 100vh;
+  height: 100%;
+  width: 100%;
+
+}
+
+.cont-header{
+  width: 80%;
+}
+
+.caja-layout {
+  display: flex;
+  color: aliceblue;
+  background: rgb(151, 151, 151);
+  margin: 10px;
+}
+
+.nav-left{
+  width: 18%;
+  height: 800px;
+}
+
+.header {
+  height: 150px;
+}
+
+.main{
+  height: 640px;
+}
+
+
+.reproductor{
+  width: 98%;
+  height: 100px;
+}
