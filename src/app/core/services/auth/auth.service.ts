@@ -1,17 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from 'src/app/interface/user.interfece';
 import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+/*
+  getToken() {
+    const token = localStorage.getItem('token')
+  }
+
+  getQuery(query: string) {
+    const url = `https://api.spotify.com/v1/${query}`
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.getToken()}` 
+    })
+
+    return this.http.get(url, { headers })
+  }*/
+
   private url = 'https://bictiamusic.herokuapp.com'
 
   constructor(private http: HttpClient,
-    private router:Router) { }
+    private router: Router) { }
 
   getUser() {
     return this.http.get(this.url + '/user')
