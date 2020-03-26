@@ -1,4 +1,7 @@
 
+*{
+  box-sizing: border-box;
+}
 
 .contenedor{
   display: flex;
@@ -8,7 +11,7 @@
   max-height: 100vh;
   height: 100%;
   width: 100%;
-  box-sizing: border-box;
+
 }
 
 .cont-header{
