@@ -8,9 +8,10 @@ import { NavLeftComponent } from './components/nav-left/nav-left.component';
 
 @NgModule({
   declarations: [
+    NavLeftComponent,
     HeaderComponent, 
     MusicPlayerComponent, 
-    NavLeftComponent
+    
   ],
   exports : [
     HeaderComponent, 
