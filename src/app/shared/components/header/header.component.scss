@@ -26,6 +26,8 @@
     border-radius: 5px;
     display: flex;
     justify-content: center;
+    padding-bottom: 25px;
+   
 }
 ul{
     margin: 0px;
@@ -48,6 +50,9 @@ a:hover{
 .li-first:hover {
     background: #292929;
     color:#B4B4B4;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
 }
 .second{
     display: none;
