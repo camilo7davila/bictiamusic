@@ -4,6 +4,7 @@
     font-size: 18px;
     text-decoration: none;
     box-sizing: border-box;
+    text-align: center;
 }
 .container{
     flex-wrap: wrap;
@@ -30,7 +31,7 @@
     justify-content: center;
     padding-right: 0;
 }
-.nav a{
+.nav ul li a{
     text-decoration: none;
     font-weight: bold;
     color:#B4B4B4;
