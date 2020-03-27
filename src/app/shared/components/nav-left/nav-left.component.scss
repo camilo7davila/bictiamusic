@@ -6,12 +6,10 @@
     text-decoration: none;
 }
 .container{
-  
     flex-wrap: wrap;
     background: #292929; 
     animation-name: bounceInDown;
     animation-duration: 2s;
-    
 }
 
 .sidebar {
@@ -30,7 +28,6 @@
     display: flex;
     justify-content: center;
     padding-right: 0;
- 
 }
 .nav a{
     text-decoration: none;
