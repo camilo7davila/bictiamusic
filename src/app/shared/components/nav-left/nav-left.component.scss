@@ -8,7 +8,7 @@
 }
 .container{
     flex-wrap: wrap;
-    background: #292929; 
+    background: rgb(27, 27, 27);
     animation-name: bounceInDown;
     animation-duration: 2s;
 }
@@ -31,7 +31,7 @@
     justify-content: center;
     padding-right: 0;
 }
-.nav ul li a{
+.nav  a{
     text-decoration: none;
     font-weight: bold;
     color:#B4B4B4;
