@@ -9,11 +9,15 @@ import { LayoutComponent } from './layout/layout.component';
 import { HttpClientModule } from '@angular/common/http'; 
 //Guard
 import { GuardGuard } from './core/guard/guard.guard';
+import { FavoritosComponent } from './favoritos/favoritos.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    FavoritosComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
