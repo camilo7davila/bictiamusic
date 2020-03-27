@@ -1,1 +1,27 @@
-<button class="btn btn-primary" (click)="logout()">Cerrar sesión</button>
+
+<div class="body">
+    <div class="header">
+        <div class="buscar">
+            <input class="busca" type="text">
+            <button height="10px">buscar</button>
+        </div>
+    
+        <div class="sesion">
+            <ul class="ul-first">
+                <li class="li-first">
+                    <a class="a-first" href="#">NombreUsuario</a>
+                    <ul class="second">
+                        <li class="li-second">
+                            <a class="a-second" href="">Cuenta</a>
+                        </li>
+                        <li class="li-second">
+                            <a class="a-second" (click)="logout()">Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
