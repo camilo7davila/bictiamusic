@@ -1,38 +1,67 @@
 *{
-
+    
     font-family: gotham;
     font-size: 18px;
     text-decoration: none;
     box-sizing: border-box;
 }
-
-.contenedor{
-    display: flex;
+.container{
     flex-wrap: wrap;
-    max-width: 100vw;
-    max-height: 100vh;
-    height: 100%;
-    width: 100%;
-
+    background: #292929; 
+    animation-name: bounceInDown;
+    animation-duration: 2s;
 }
 
-.sidebar{
+.sidebar {
     width: 100%;
-    height: 850px;
-    background: rgb(37, 36, 36);
+    height: 80vh;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
 }
-
 .sidebar-header{
-    width: 100%;
+    padding-top: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-right: 0;
+}
+.nav a{
+    text-decoration: none;
+    font-weight: bold;
+    color:#B4B4B4;
+    transition: all 500ms linear;
 }
 
 
 .sidebar-header img {
     width: 80%;
 }
+.nav li{
+    margin-bottom: 15px;
+}
 
+.burguer-button{
+    position: fixed;
+    display: none;
+}
+.sidebar-header img {
+    width: 80%;
+}
+@media screen and (max-width: 767px){
+    *{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 600px){
+    .burguer-button{
+        display: block;
+    }
+    .navside{
+        display: none;
+    }
+}
