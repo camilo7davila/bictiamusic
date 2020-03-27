@@ -1,5 +1,4 @@
 *{
-    
     font-family: gotham;
     font-size: 18px;
     text-decoration: none;
@@ -30,12 +29,14 @@
     align-items: center;
     justify-content: center;
     padding-right: 0;
-}
-.nav  a{
     text-decoration: none;
     font-weight: bold;
-    color:#B4B4B4;
     transition: all 500ms linear;
+}
+
+.nav a:hover{
+    color:#B4B4B4;
+    text-decoration: none;
 }
 
 
