@@ -32,3 +32,28 @@
   grid-row: 4 / span 1;
   background: rgb(7, 145, 224);
 }
+
+@media screen and (max-width: 720px){
+    .container {
+      grid-template-rows: 10% 40% 20% 20% 10%;
+      height: 90vh;
+      padding: 0;
+      }
+   
+      .container app-header {
+        grid-column: 1 / span 3;
+        grid-row: 1 / 1;
+      }
+      .container router-outlet {
+        grid-column: 1/ span 3;
+        grid-row: 2/span 3;
+      }
+      .container app-music-player {
+        grid-column: 1 / span 3;
+        grid-row: 4 / 4;
+       }
+       .container app-nav-left{
+        grid-column: 1 / span 3;
+        grid-row: 5 / 5;
+        }
+}
