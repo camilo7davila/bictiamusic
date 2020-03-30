@@ -18,16 +18,32 @@
 }
 
 .sesion{
-    width: 10%;
+    width: 45%;
+    height: 40px;
     background: #292929;
     color:#B4B4B4;
     position: relative;
-    top: 15px;
+    top: 40px;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     padding-bottom: 25px; 
+    font-size: small;
 }
+.profile{
+    display: flex;
+    width: 215px;
+}
+.profile-img{
+    background: grey;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin-right: 5%;
+    margin-top: 10px;
+    
+}
+
 .icon-user{
     display: none;
 }
@@ -55,9 +71,11 @@ a:hover{
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
+    height: 80px;
 }
 .second{
     display: none;
+    width: 80px;
     margin: 0px;
     padding: 0px;
     text-decoration: none;
@@ -77,7 +95,7 @@ a:hover{
     height: 45px;
     border-radius: 5px;
     position: relative;
-    top: 15px;
+    top: 40px;
   
 }
 .busca{
@@ -103,11 +121,24 @@ button:hover{
     color: #1D7ACE;
 }
 @media screen and (max-width: 720px){
+
     .UserName{
         display: none;
     }
     .icon-user{
         display: block;
         font-size: 25px;
+ 
+    }
+    .profile-img{
+        display: none;
+    }
+    .buscar{
+        top: 20px;
+        margin-left: 5%;
+    }
+    .sesion{
+        top: 20px;
+        margin-left: 25%;
     }
 }
