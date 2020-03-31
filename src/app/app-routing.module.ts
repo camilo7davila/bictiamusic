@@ -4,6 +4,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { GuardGuard } from './core/guard/guard.guard';
 
 
+
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +20,7 @@ const routes: Routes = [
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
         canActivate:[GuardGuard]
       }
+      
     ]
   },
   {

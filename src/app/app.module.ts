@@ -11,7 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { GuardGuard } from './core/guard/guard.guard';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
-import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     LayoutComponent,
     FavoritosComponent,
     AboutusComponent,
-    UpdateProfileComponent
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,
