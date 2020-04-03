@@ -12,6 +12,7 @@ import { GuardGuard } from './core/guard/guard.guard';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
