@@ -51,19 +51,25 @@
     margin-bottom: 15px;
 }
 
-.burguer-button{
-    position: fixed;
+.icon{
     display: none;
 }
+
 .sidebar-header img {
     width: 80%;
 }
-@media screen and (max-width: 767px){
-    *{
-        font-size: 15px;
+
+@media screen and (max-width: 720px){
+    .responsive-menu{
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+     }
+    .icon{
+        display: block;
+        font-size: 25px;
+        margin: 15px;
     }
-}
-@media screen and (max-width: 600px){
     .burguer-button{
         display: block;
     }
