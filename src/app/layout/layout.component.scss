@@ -1,59 +1,73 @@
-.container {
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.contenedor {
   display: grid;
   grid-template-columns: 19% 50% 31%;
-  grid-template-rows: 20% 70% 10% 10%;
-  grid-gap: 10px;
+  grid-template-rows: 10% 70% 10% 10%;
   margin: 10px auto;
   width: 100%;
   max-width: 1800px;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-
-.container app-nav-left {
+.contenedor app-nav-left {
   grid-column: 1 / 1;
   grid-row: 1 / span 3;
   background: rgb(27, 27, 27);
+ 
 }
 
-.container app-header {
+.contenedor app-header {
   grid-column: 2 / span 2;
   grid-row: 1 / span 1;
   background: rgb(27, 27, 27);
+  padding-bottom: 20px;
 }
 
-.container router-outlet {
+.contenedor .router-outlet {
   grid-column: 2/ span 2;
   grid-row: 2/span 2;
-  background: rgb(7, 145, 224);
+  overflow: scroll;
+  height: 80vh;
+  margin-top: 50px;
 }
 
-.container app-music-player {
+.contenedor app-music-player {
   grid-column: 1 / span 3;
   grid-row: 4 / span 1;
-  background: rgb(7, 145, 224);
+  z-index: 1 ;
 }
 
 @media screen and (max-width: 720px){
-    .container {
+    .contenedor {
       grid-template-rows: 10% 40% 20% 20% 10%;
       height: 90vh;
       padding: 0;
       }
    
-      .container app-header {
+      .contenedor app-header {
         grid-column: 1 / span 3;
         grid-row: 1 / 1;
       }
-      .container router-outlet {
+      .contenedor .router-outlet {
         grid-column: 1/ span 3;
         grid-row: 2/span 3;
+        height: 60vh;
       }
-      .container app-music-player {
+      .contenedor app-music-player {
         grid-column: 1 / span 3;
         grid-row: 4 / 4;
        }
-       .container app-nav-left{
+       .contenedor app-nav-left{
         grid-column: 1 / span 3;
         grid-row: 5 / 5;
+    
+        z-index: 1;
+
         }
 }

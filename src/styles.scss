@@ -1,13 +1,17 @@
 
-body{
-  max-height: 100vh;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
 }
 
 
-
-
-
-
+// COMIENZAN ANIMACIONES GLOBALES
 @-webkit-keyframes bounceIn {
   from,
   20%,

@@ -9,21 +9,23 @@
             <div class="sesion">
             <ul class="ul-first">
                 <li class="li-first">
-                    <a class="a-first UserName" href="#">Usuario </a>
+                    <a class="a-first UserName" href="#">{{changeName.name}}</a>
                     <a class="a-first" href="#"><i class="icon-user"></i></a>
                     <ul class="second">
                         <li class="li-second">
                             <a class="a-second" routerLink="../../../update-user"> Cuenta</a>
                         </li>
                         <li class="li-second">
-                            <a type="button" class="a-second" (click)="logout()">Cerrar sesión</a>
+                            <a type="button" class="a-second"(click)="logout()">Cerrar sesión</a>
                         </li>
                     </ul>
                 </li>
             </ul>
             
             </div>
-            <div class="profile-img"></div> 
+            <div class="profile-img">
+                <img [src]="changeName.photo" alt="">
+            </div> 
         </div>
     </div>
     

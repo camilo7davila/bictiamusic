@@ -8,6 +8,14 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  changeName:any = {
+    name : localStorage.getItem('dataUser'),
+    photo: localStorage.getItem('imagen')
+  
+  };
+  
+ 
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -15,7 +23,10 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     localStorage.removeItem('token')
+    localStorage.removeItem('dataUser')
+    localStorage.removeItem('imagen')
     this.router.navigate(['/auth/login'])
   }
+
 
 }
