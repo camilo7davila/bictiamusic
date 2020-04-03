@@ -14,7 +14,7 @@ import swal from 'sweetalert2'
 })
 export class LoginComponent implements OnInit {
 
-  alertSweet:string=''
+  alertSweet: string = ''
 
   userFromHTML: User = {
     firstName: '',
@@ -41,11 +41,12 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.userFromHTML)
       .subscribe((data: any) => {
         console.log(data)
-        localStorage.setItem('token', data.message)
+        localStorage.setItem('token', data.message.token)
+        localStorage.setItem('dataUser',data.message.user)
         this.router.navigate(['/home'])
-        swal.fire(`Bienvenido ${this.userFromHTML.email}`,this.alertSweet,'success')
+        swal.fire(`Bienvenido ${this.userFromHTML.email}`, this.alertSweet, 'success')
       },
-        err => swal.fire(`${err.error.error}`,this.alertSweet,'warning')
+        err => swal.fire(`${err.error.error}`, this.alertSweet, 'warning')
       )
   }
 

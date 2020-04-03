@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  changeName:any = {
+    name : localStorage.getItem('dataUser')
+  };
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -17,5 +21,6 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('token')
     this.router.navigate(['/auth/login'])
   }
+
 
 }

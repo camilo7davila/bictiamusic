@@ -9,22 +9,23 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-/*
-  getToken() {
-    const token = localStorage.getItem('token')
-  }
+  /*
+    getToken() {
+      const token = localStorage.getItem('token')
+    }
+  
+    getQuery(query: string) {
+      const url = `https://api.spotify.com/v1/${query}`
+  
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${this.getToken()}` 
+      })
+  
+      return this.http.get(url, { headers })
+    }*/
 
-  getQuery(query: string) {
-    const url = `https://api.spotify.com/v1/${query}`
-
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.getToken()}` 
-    })
-
-    return this.http.get(url, { headers })
-  }*/
-
-  private url = 'https://bictiamusic.herokuapp.com'
+  //private url = 'https://bictiamusic.herokuapp.com'
+  private url = 'http://localhost:3000'
 
   constructor(private http: HttpClient,
     private router: Router) { }
