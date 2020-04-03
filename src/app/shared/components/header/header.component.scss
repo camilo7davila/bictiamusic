@@ -132,7 +132,8 @@ button:hover{
     }
     .icon-user{
         display: block;
-        font-size: 25px;
+        font-size: 30px;
+    
  
     }
     .profile-img{
@@ -145,5 +146,8 @@ button:hover{
     .sesion{
         top: 20px;
         margin-left: 25%;
+        border-radius: 100%;
+        width:60px;
+        height: 60px;
     }
 }
