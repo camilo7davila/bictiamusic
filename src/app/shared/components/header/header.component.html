@@ -16,7 +16,7 @@
                             <a class="a-second" href="">Cuenta</a>
                         </li>
                         <li class="li-second">
-                            <a type="button" class="a-second" (click)="logout()">Cerrar sesión</a>
+                            <a type="button" class="a-second"(click)="logout()">Cerrar sesión</a>
                         </li>
                     </ul>
                 </li>
@@ -24,7 +24,7 @@
             
             </div>
             <div class="profile-img">
-                <img src="assets/img/default.png" alt="">
+                <img [src]="changeName.photo" alt="">
             </div> 
         </div>
     </div>

@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
         console.log(data)
         localStorage.setItem('token', data.message.token)
         localStorage.setItem('dataUser',data.message.user)
+        localStorage.setItem('imagen', data.message.photo)
         this.router.navigate(['/home'])
         swal.fire(`Bienvenido ${this.userFromHTML.email}`, this.alertSweet, 'success')
       },

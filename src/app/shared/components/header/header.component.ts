@@ -9,8 +9,12 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   changeName:any = {
-    name : localStorage.getItem('dataUser')
+    name : localStorage.getItem('dataUser'),
+    photo: localStorage.getItem('imagen')
+  
   };
+  
+ 
 
   constructor(private router:Router) { }
 
