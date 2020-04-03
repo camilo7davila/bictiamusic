@@ -24,8 +24,8 @@ export class AuthService {
       return this.http.get(url, { headers })
     }*/
 
-  //private url = 'https://bictiamusic.herokuapp.com'
-  private url = 'http://localhost:3000'
+  private url = 'https://bictiamusic.herokuapp.com'
+  //private url = 'http://localhost:3000'
 
   constructor(private http: HttpClient,
     private router: Router) { }
