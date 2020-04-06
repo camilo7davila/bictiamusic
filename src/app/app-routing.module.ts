@@ -15,6 +15,11 @@ const routes: Routes = [
         canActivate:[GuardGuard]
       },
       {
+        path: 'management',
+        loadChildren: () => import('./management/management.module').then(m => m.ManagementModule),
+        canActivate:[GuardGuard]
+      },
+      {
         path: '',
         loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
         canActivate:[GuardGuard]

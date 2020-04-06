@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { MusicPlayerComponent } from './components/music-player/music-player.component';
 import { NavLeftComponent } from './components/nav-left/nav-left.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -20,7 +21,8 @@ import { NavLeftComponent } from './components/nav-left/nav-left.component';
     NavLeftComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

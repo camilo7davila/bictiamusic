@@ -7,9 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HttpClientModule } from '@angular/common/http'; 
+import { RouterModule, Router } from '@angular/router';
 //Guard
 import { GuardGuard } from './core/guard/guard.guard';
-import { FavoritosComponent } from './favoritos/favoritos.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 
 
@@ -17,14 +17,14 @@ import { AboutusComponent } from './aboutus/aboutus.component';
   declarations: [
     AppComponent,
     LayoutComponent,
-    FavoritosComponent,
     AboutusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [GuardGuard],
   bootstrap: [AppComponent]

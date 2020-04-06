@@ -1,9 +1,9 @@
 <!-- Sidebar -->
 <div class="container responsive-menu">
-<a href=""><i class="icon icon-home"></i> </a>
-<a href="#"><i class="icon icon-favorite"></i> </a>
-<a href="#"><i class="icon icon-music"></i> </a>
-<a href="#"><i class="icon icon-about"></i> </a>
+<a [routerLink]="['']" ><i class="icon icon-home"></i> </a>
+<a [routerLink]="['/favoritos']"><i class="icon icon-favorite"></i> </a>
+<a [routerLink]="['/generos']"><i class="icon icon-music"></i> </a>
+<a [routerLink]="['/about']"><i class="icon icon-about"></i> </a>
 </div>
 <div class="container navside">
         <nav class="sidebar">
@@ -15,19 +15,19 @@
             <ul class="list-unstyled components">
                 <br>
                      <li>
-                        <a href="#">Inicio</a>
+                        <a [routerLink]="['/']">Inicio</a>
                     </li>
                      <li>
-                        <a href="#">Favoritos</a>
+                        <a [routerLink]="['/favoritos']">Favoritos</a>
                     </li>
                     <li>
-                        <a href="#">Generos</a>
+                        <a [routerLink]="['/generos']">Generos</a>
                     </li>
                     <li>
-                        <a href="#">Artistas</a>
+                        <a [routerLink]="['/artistas']">Artistas</a>
                     </li>
                     <li>
-                         <a href="#">Acerca De</a>
+                         <a [routerLink]="['/about']">Acerca De</a>
                     </li>  
             </ul>
         </div>
