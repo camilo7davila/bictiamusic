@@ -10,14 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Router } from '@angular/router';
 //Guard
 import { GuardGuard } from './core/guard/guard.guard';
-import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
-    AboutusComponent
   ],
   imports: [
     BrowserModule,
