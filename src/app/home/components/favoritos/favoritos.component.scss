@@ -1,0 +1,13 @@
+
+.flex{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+}
+.text{
+    width: 250px;
+    overflow: hidden;
+    justify-content: center;
+}
