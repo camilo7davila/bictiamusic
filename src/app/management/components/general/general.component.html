@@ -1,3 +1,28 @@
-<a [routerLink]="['/management/track']">Añadir Pista</a>
-<a [routerLink]="['/management/album']">Añadir Album</a>
-<a [routerLink]="['/management/artist']">Añadir Artista</a>
+<div class="container">
+    <h2>Gestionar Contenido</h2>
+    <br>
+    <div class="row mCards">
+      <div class="col">
+        <div class="mCard">
+            <img id="artist" src="assets/img/default-artist.png" alt="default-artist" (click)="navigate('track')">
+            <div class="plus">+</div>
+            <a [routerLink]="['track']">Añadir Nueva Pista</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mCard">
+            <img src="assets/img/default-cd.png" alt="default-cd" (click)="navigate('artist')">
+            <div class="plus">+</div>
+            <a [routerLink]="['artist']">Añadir Nuevo Artista</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mCard">
+            <img src="assets/img/default-cd.png" alt="default-cd" (click)="navigate('album')">
+            <div class="plus">+</div>
+            <a [routerLink]="['album']">Añadir Nuevo Album</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
