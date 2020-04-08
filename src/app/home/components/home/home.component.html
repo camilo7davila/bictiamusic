@@ -1,160 +1,55 @@
-
 <div class="container">
 
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 
-<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-   
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="assets/img/banner.jpg" class="d-block h-100" alt="..." >
+        <img src="assets/img/banner.jpg" class="d-block h-100" alt="...">
         <div class="carousel-caption d-none d-md-block"><br>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQUlpZZhqioeppl6XIOYRhykYuIfJLiQc_AgSCRnw1IoMo2wk1R&usqp=CAU" class="d-block w-100" alt="...">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQUlpZZhqioeppl6XIOYRhykYuIfJLiQc_AgSCRnw1IoMo2wk1R&usqp=CAU"
+          class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
+
+          <h5></h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="https://blogs.glowscotland.org.uk/fi/public/inverkeithinghsmusic/uploads/sites/10406/2018/02/Music-banner-1-1024x341.jpg" class="d-block w-100" alt="...">
+        <img
+          src="https://blogs.glowscotland.org.uk/fi/public/inverkeithinghsmusic/uploads/sites/10406/2018/02/Music-banner-1-1024x341.jpg"
+          class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
         </div>
       </div>
     </div>
-    
+
 
   </div>
 
   <div class="container">
-  <h5>Los Mas Escuchados</h5>
+    <h5>Los Mas Escuchados</h5>
+    <div class="container m-4">
+      <div class="row row-cols-4">
+        <div class="col mt-4" *ngFor="let songs of song">
+          <div class="card " style="width: 13rem;">
 
-      <div class="container m-4">
-        <div class="row row-cols-4">
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="https://static.wixstatic.com/media/a9dd0a_6ae15423643e4488bd9490bb71838b9b.jpg/v1/fill/w_949,h_949,al_c,q_85/a9dd0a_6ae15423643e4488bd9490bb71838b9b.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
+            <div class="cont-img">
+              <img src="assets/img/cover1.jpeg" class="card-img-top" alt="...">
+              <img src="assets/img/play.jpg" alt="" class="card-img-top play">
             </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="https://img.discogs.com/re0tGjpY7FbjOhgl2zOZKc8tJho=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1578896-1267743853.jpeg.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
+
+            <div class="card-body text-center">
+              <h5 class="card-text">{{songs.nameSong}}</h5>
+              <p>Artista: {{songs.idAuthor.firstName}}</p>
             </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="https://i1.sndcdn.com/artworks-000015510184-xl91xs-t500x500.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
-            </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="https://sss.moda.pe/imagen/square/esperandote-manuel-turizo-872f7.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
-            </div>
-          </div></div>
+          </div>
         </div>
       </div>
-
-      <h5>Recomendados Para Ti</h5>
-
-      <div class="container m-4">
-        <div class="row row-cols-4">
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="./assets/img/cover2.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
-            </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="./assets/img/cover1.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card </p>
-            </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="https://upload.wikimedia.org/wikipedia/en/3/38/Queen_-_Greatest_Hits_2.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
-            </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="https://www.mehaceruido.com/wp-content/uploads/2019/09/green-day-american-idiot.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card content.</p>
-            </div>
-          </div></div>
-        </div>
-      </div>
-
-      <h5>LLegamos a la disco</h5>
-
-      <div class="container m-4">
-        <div class="row row-cols-4">
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="https://img.discogs.com/4RxO701-tEFRfDkYs2HFFp8RSHc=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-11225334-1512238691-9997.jpeg.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card </p>
-            </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="https://files.constantcontact.com/2a314de0501/af7348c6-95d2-4337-a00e-9e2981dba709.jpg?a=1128097784136" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
-            </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="https://i.pinimg.com/originals/0a/a1/c6/0aa1c6d75b526d4667da4a9b0eb9ff14.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
-            </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="https://i3.sndcdn.com/artworks-000197908440-jco2a5-t500x500.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
-            </div>
-          </div></div>
-        </div>
-      </div>
-
-      <h5>Mas De Lo Que Te Gusta</h5>
-
-      <div class="container m-4">
-        <div class="row row-cols-4">
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="./assets/img/cover1.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
-            </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="./assets/img/cover2.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
-            </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="./assets/img/cover1.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card </p>
-            </div>
-          </div></div>
-          <div class="col "><div class="card" style="width: 12rem;">
-            <img src="./assets/img/cover2.jpeg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card .</p>
-            </div>
-          </div></div>
-        </div>
-      </div>
-
-
     </div>
-
-    </div>
+  </div>
