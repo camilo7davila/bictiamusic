@@ -1,13 +1,49 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 
 .flex{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
-   
+ 
 }
+.titulo{
+    color:#1D7ACE;
+    cursor: pointer;
+}   
 .text{
-    width: 250px;
+    width: 230px;
     overflow: hidden;
+    position: relative;
     justify-content: center;
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding-top: 15px;
+    
+}
+img{
+    transition: border-bottom 0,30s;
+    
+}
+img:hover{
+    opacity: 0.5;
+    width: 205px;
+    height: 255px;
+    cursor: pointer;
+    border-bottom: 4px solid #1D7ACE;
+    animation-name: border_bottom;
+
+}
+@keyframes border_bottom{
+    from{border-bottom: #B4B4B4;}
+    to{border-bottom: #1D7ACE;}
+}
+h5:hover{
+    font-size: x-large;
+    color:#1D7ACE;
+    cursor: pointer;
 }
