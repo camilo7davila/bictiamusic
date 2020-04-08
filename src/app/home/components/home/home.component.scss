@@ -10,6 +10,34 @@
     margin-bottom: 20px;
 }
 
+
+.cont-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+
+    .play{
+        justify-content: center;
+        position: absolute;
+        opacity: 0;
+        transition: 0.5s;
+   
+    }
+
+    .play:hover{
+        justify-content: center;
+        position: absolute;
+        opacity: 0.8;
+        transition: 0.5s;
+      
+    }
+}
+
+
+
+
 @media screen and (max-width: 720px){
     .carousel-item img{
         height: 100px;
