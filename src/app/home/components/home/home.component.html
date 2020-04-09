@@ -40,14 +40,16 @@
           <div class="card " style="width: 13rem;">
 
             <div class="cont-img">
-              <img src="assets/img/cover1.jpeg" class="card-img-top" alt="...">
+              <img src="{{songs.imgSong}}" class="card-img-top" alt="...">
               <img src="assets/img/play.jpg" alt="" class="card-img-top play">
             </div>
 
             <div class="card-body text-center">
               <h5 class="card-text">{{songs.nameSong}}</h5>
               <p>Artista: {{songs.idAuthor.firstName}}</p>
+              <p>Genero: {{songs.idGener.nameGener}}</p>
             </div>
+
           </div>
         </div>
       </div>

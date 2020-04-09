@@ -10,23 +10,28 @@ import { SongService } from 'src/app/core/services/song/song.service';
 })
 export class HomeComponent implements OnInit {
 
-  song: any[]=[];
+  song: any[] = [];
 
   constructor(
-    private router:Router,
-    private serviceSong: SongService) { 
-      this.songs()
-    }
+    private router: Router,
+    private serviceSong: SongService) {
+    this.songs()
+  }
 
   ngOnInit(): void {
   }
 
-  songs(){
+  songs() {
     this.serviceSong.getSong()
-    .subscribe((data:any)=>{
-      this.song = data.message;
-      console.log(this.song)
-    })
+      .subscribe((data: any) => {
+        this.song = data.message;
+        console.log(this.song)
+        let songsFilter = data.message.filter(songs => {
+          return songs.idGener.nameGener === 'Electronica'
+        });
+        console.log(songsFilter)
+      })
   }
+
 
 }
