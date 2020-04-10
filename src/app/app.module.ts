@@ -12,7 +12,7 @@ import { RouterModule, Router } from '@angular/router';
 import { GuardGuard } from './core/guard/guard.guard';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { environment } from 'src/environments/environment';
 
@@ -29,7 +29,7 @@ import { environment } from 'src/environments/environment';
     HttpClientModule,
     RouterModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    AngularFireStorageModule,
   ],
   providers: [GuardGuard],
   bootstrap: [AppComponent]

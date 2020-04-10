@@ -1,5 +1,16 @@
 <div class="container">
   <h2>Añadir Pista</h2>
+
+  <form action="">
+    <input type="file" name="file" (change)='uploadFile($event)'>
+    <input type="text" name="url" [(ngModel)]="input">
+    <br>
+  
+  
+    <div class="imagen-cargada">
+      <img *ngIf="(img$ | async) as img" [src]="img" width="100px">
+    </div>
+  </form>
   <br>
   <div class="row">
     <div class="col">
@@ -78,3 +89,6 @@
     </div>
   </div>
 </div>
+
+
+
