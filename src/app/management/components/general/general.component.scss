@@ -1,0 +1,57 @@
+
+h2{
+    color: #0071BC;
+
+}
+
+.mCards {
+    margin-top: 3rem;
+    margin-bottom: 50px;
+    .mCard {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            padding-top: 1rem;
+        }
+
+        .imageContainer {
+            margin:0;
+            padding: 0;
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        
+        img {
+            position: relative;
+            width: 80%;
+            border-radius: 5%;
+            cursor: pointer;
+            transition: 0.5s;
+            filter: brightness(80%);
+        }
+        
+        #artist {
+            border-radius: 50%;
+        }
+
+        img:hover {
+            filter: contrast(60%);
+            opacity: 80%;
+        }
+    
+        .plus {
+            align-self: center;
+            position: absolute;
+            width: 40%;
+            opacity: 90%;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
