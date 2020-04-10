@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SongService {
 
+ 
+
   constructor(
     private router:Router,
     private http:HttpClient
@@ -18,6 +20,12 @@ export class SongService {
       return this.http.get<any>(this.url+'/song')
     }
 
-   
+    getGeneros(){
+      return this.http.get<any>(this.url+'/geners')
+    }
+
+    getGeneroDetalle(id:string){
+      return this.http.get<any>(`${this.url}/search?type=2&id=${id}`)
+    }
 
 }
