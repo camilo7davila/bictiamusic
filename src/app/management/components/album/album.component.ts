@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AngularFireStorage } from '@angular/fire/storage/storage';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { AlbumService } from 'src/app/core/services/album/album.service';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-album',
