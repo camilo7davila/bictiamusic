@@ -14,11 +14,14 @@ export class AlbumComponent implements OnInit {
   
   form: FormGroup;
   img$: Observable<any>;
+  file: any;
 
   constructor(
     private fb: FormBuilder,
     private albumService: AlbumService,
-    private storage: AngularFireStorage) { }
+    private storage: AngularFireStorage) {
+      this.buildForm();
+     }
 
   ngOnInit(): void {
   }
@@ -29,22 +32,22 @@ export class AlbumComponent implements OnInit {
       nameAlbum: [''],
       photo: [''],
       dateAlbum: [''],
-      idAuthor: ['']
+      idAutor: [autId]
     })
   }
 
   uploadImage(event) {
     const file = event.target.files[0];
-    const dir = `/${this.form.get('idAuthor').value}/${file.name}`;
+    const dir = `/${this.form.get('idAutor').value}/${file.name}`;
     const fileRef = this.storage.ref(dir);
     const task = this.storage.upload(dir, file);
-    alert('se subio la foto')
+    console.log('uploading')
 
     task.snapshotChanges().pipe(
       finalize(async () => {
         this.img$ = await fileRef.getDownloadURL();
         this.img$.subscribe((url) => {
-          this.form.controls['imgSong'].setValue(url)
+          this.form.controls['photo'].setValue(url)
         })
       })
     ).subscribe();
@@ -52,12 +55,12 @@ export class AlbumComponent implements OnInit {
 
   save() {
     console.log(this.form.value)
-    // let albumData = this.form.value;
-    // this.albumService.postAlbum(albumData)
-    //   .subscribe(data => {
-    //     console.log(data);
-    //     albumData === data;
-    //   }, e => console.log(e))
+    let albumData = this.form.value;
+    this.albumService.postAlbum(albumData)
+      .subscribe(data => {
+        console.log(data);
+        albumData === data;
+      }, e => console.log(e))
   }
 
 }
