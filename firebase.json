@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "spotiake",
+      "public": "dist/spotiake",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
