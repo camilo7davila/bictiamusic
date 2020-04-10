@@ -13,7 +13,7 @@ export class MusicPlayerComponent implements OnInit {
     ruta: 'assets/music/'
   };
 
-  play: string = 'Vacio'
+  play: string = ''
 
   constructor( public playService:ConexionesService
   ) { }
