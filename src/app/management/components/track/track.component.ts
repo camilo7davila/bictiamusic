@@ -23,7 +23,7 @@ export class TrackComponent implements OnInit {
   img2$: Observable<any>
 
   ngOnInit(): void {
-  }
+  } 
 
   private buildForm() {
     let autId = localStorage.getItem('id');
