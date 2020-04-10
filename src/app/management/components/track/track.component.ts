@@ -49,7 +49,7 @@ export class TrackComponent implements OnInit {
       finalize(async () => {
         this.img$ = await fileRef.getDownloadURL();
         this.img$.subscribe((url) => {
-          this.form.get('imgSong').setValue(url)
+          this.form.controls['imgSong'].setValue(url)
         })
       })
     ).subscribe();
@@ -66,20 +66,19 @@ export class TrackComponent implements OnInit {
       finalize(async () => {
         this.img2$ = await fileRef.getDownloadURL();
         this.img2$.subscribe((url) => {
-          this.form.get('songFile').setValue(url)
+          this.form.controls['songFile'].setValue(url)
         })
       })
     ).subscribe();
   }
 
   save() {
-    console.log(this.form.value);
-    // let songData = this.form.value;
-    // this.songService.postSong(songData)
-    //   .subscribe(data => {
-    //     console.log(data);
-    //     songData === data;
-    //   }, e => console.log(e))
-    // console.log(this.form.value)
+    let songData = this.form.value;
+    this.songService.postSong(songData)
+      .subscribe(data => {
+        console.log(data);
+        songData === data;
+      }, e => console.log(e))
+    console.log(this.form.value)
   }
 }

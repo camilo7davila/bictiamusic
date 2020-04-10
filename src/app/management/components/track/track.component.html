@@ -40,7 +40,7 @@
           <div class="form-group">
             <label for="Imagen" class="control-label col-md-6"> foto: </label>
             <div class="col-md-12">
-              <input class="form-control" type="file" formControlName="imgSong"  (change)='uploadImage($event)'>
+              <input class="form-control" type="file" (change)='uploadImage($event)'>
             </div>
             <div class="imagen-cargada">
               <img *ngIf="(img$ | async) as img" [src]="img" width="100px">
@@ -50,7 +50,7 @@
           <div class="form-group">
             <label for="MP3" class="control-label col-md-6"> cancion: </label>
             <div class="col-md-12">
-              <input class="form-control" type="file" formControlName="songFile" (change)='uploadMP3($event)' >
+              <input class="form-control" type="file" (change)='uploadMP3($event)' >
             </div>
           </div>
 
