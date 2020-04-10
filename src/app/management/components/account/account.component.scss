@@ -1,31 +1,45 @@
+
+
+
+
+.general{
+    margin: 5%;
+    margin-top: 0;
+}
 .form{
    
-    border-right: solid 1px darkgray;
+    border-right: solid 1px black;
+    font-size: 12px;
    
 }
 
-h2{
+h4{
     color: #0071BC;
 }
 
 .btn{
     background: #0071BC;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 5px;
     color: white;
+    height: 25px;
 }
 
 .form-group input, select{
     background: #DDDDDD;
 } 
 
-.imagen-profile{
+.imagen-profile, img{
     background:#DDDDDD; ;
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
     border-radius: 100%;
 }
 
 .imagen{
     padding: 10%;
-    margin-top: 10%;
 }
+
+
+

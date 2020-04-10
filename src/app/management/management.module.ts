@@ -8,6 +8,7 @@ import { TrackComponent } from './components/track/track.component';
 import { AlbumComponent } from './components/album/album.component';
 import { AccountComponent } from './components/account/account.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ManagementRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class ManagementModule { }
