@@ -5,6 +5,7 @@ import { FavoritosComponent } from './components/favoritos/favoritos.component';
 import { GenerosComponent } from './components/generos/generos.component';
 import { ArtistasComponent } from './components/artistas/artistas.component';
 import { AboutComponent } from './components/about/about.component';
+import { GeneroDetalleComponent } from './components/generos/generoDetalle/genero-detalle/genero-detalle.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path:'generos',
     component: GenerosComponent
+  },
+  {
+    path:'generosdetalle/:id',
+    component:GeneroDetalleComponent
   },
   {
     path:'artistas',

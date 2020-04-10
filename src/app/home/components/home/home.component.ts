@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { SongService } from 'src/app/core/services/song/song.service';
+import { ConexionesService } from 'src/app/core/services/conexiones/conexiones.service';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,11 @@ export class HomeComponent implements OnInit {
 
   song: any[] = [];
 
+
   constructor(
     private router: Router,
-    private serviceSong: SongService) {
+    private serviceSong: SongService,
+    private playService:ConexionesService) {
     this.songs()
   }
 
@@ -33,5 +36,11 @@ export class HomeComponent implements OnInit {
       })
   }
 
+  reproducir(termino:any){
+
+    console.log(termino)
+    this.playService.reproducir$.emit(termino)
+
+  }
 
 }
