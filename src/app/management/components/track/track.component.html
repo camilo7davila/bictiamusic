@@ -1,10 +1,10 @@
 <div class="container">
   <h2>Añadir Pista</h2>
   <br>
-  <div class="row">
-    <div class="col">
-      <h4>Info de la Pista</h4>
-      <form class="form" [formGroup]="form" (ngSubmit)="save()">
+  <form class="form" [formGroup]="form" (ngSubmit)="save()">
+    <h4>Info de la Pista</h4>
+    <div class="row">
+      <div class="col">
         <div class="container">
           <div class="form-group">
             <label for="name" class="control-label col-md-6"> Canción: </label>
@@ -12,12 +12,6 @@
               <input class="form-control" type="text" formControlName="nameSong">
             </div>
           </div>
-          <!-- <div class="form-group">
-            <label for="name" class="control-label col-md-6"> Artista: </label>
-            <div class="col-md-12">
-              <input class="form-control" type="text" formControlName="idAuthor">
-            </div>
-          </div> -->
           <div class="form-group">
             <label for="name" class="control-label col-md-6"> Album: </label>
             <div class="col-md-12">
@@ -27,59 +21,31 @@
           <div class="form-group">
             <label for="name" class="control-label col-md-6"> Género: </label>
             <div class="col-md-12">
-              <input class="form-control" type="text" formControlName="idGener" >
+              <input class="form-control" type="text" formControlName="idGener">
             </div>
           </div>
           <div class="form-group">
             <label for="name" class="control-label col-md-6"> Q: </label>
             <div class="col-md-12">
-              <input class="form-control" type="number" formControlName="qualification" >
+              <input class="form-control" type="number" formControlName="qualification">
             </div>
           </div>
-
-          <div class="form-group">
-            <label for="Imagen" class="control-label col-md-6"> foto: </label>
-            <div class="col-md-12">
-              <input class="form-control" type="file" (change)='uploadImage($event)'>
-            </div>
-            <div class="imagen-cargada">
-              <img *ngIf="(img$ | async) as img" [src]="img" width="100px">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="MP3" class="control-label col-md-6"> cancion: </label>
-            <div class="col-md-12">
-              <input class="form-control" type="file" (change)='uploadMP3($event)' >
-            </div>
-          </div>
-
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-    <div class="col">
-      <h4 style="color: white;">.</h4>
-      <div class="form-group">
-        <label for="name" class="control-label col-md-6"> Imagen: </label>
-        <div class="col-md-12">
-          <input class="form-control" type="file">
-        </div>
-        <div class="container row">
-          <button class="btn offset-10">Examinar</button>
         </div>
       </div>
-      <div class="form-group">
-        <label for="name" class="control-label col-md-6"> Audio: </label>
-        <div class="col-md-12">
-          <input class="form-control" type="file">
-        </div>
-        <div class="container row">
-          <button class="btn offset-10">Examinar</button>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="file" class="labelfile"><i class="fas fa-upload"></i> Subir audio </label>
+          <div class="col-md-12">
+            <input class="form-control" type="file" name="file" id="file" class="inputfile" (change)='uploadMP3($event)'>
+          </div>
+          <div class="container row">
+            <button type="submit" class="btn offset-10">Submit</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
   <div class="container preview">
     <div class="row">
       <div class="col">
@@ -97,12 +63,9 @@
         <p><b>Género:</b> xxxxxx</p>
 
         <div class="container row">
-            <button class="btn offset-8">Agregar</button>
-          </div>
+          <button class="btn offset-8">Agregar</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
