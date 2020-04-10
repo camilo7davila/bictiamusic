@@ -8,10 +8,11 @@ import { FavoritosComponent } from './components/favoritos/favoritos.component';
 import { GenerosComponent } from './components/generos/generos.component';
 import { ArtistasComponent } from './components/artistas/artistas.component';
 import { AboutComponent } from './components/about/about.component';
+import { GeneroDetalleComponent } from './components/generos/generoDetalle/genero-detalle/genero-detalle.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, FavoritosComponent, GenerosComponent, ArtistasComponent, AboutComponent],
+  declarations: [HomeComponent, FavoritosComponent, GenerosComponent, ArtistasComponent, AboutComponent, GeneroDetalleComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
