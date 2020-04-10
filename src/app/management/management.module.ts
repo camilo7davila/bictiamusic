@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { ManagementRoutingModule } from './management-routing.module';
 import { GeneralComponent } from './components/general/general.component';
@@ -15,7 +16,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ManagementRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ManagementModule { }
