@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-general',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./general.component.scss']
 })
 export class GeneralComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(private router: Router) {  }
 
   ngOnInit(): void {
   }
+
+  navigate(route: String) {
+    this.router.navigate(['/management/' + route])
+  }
+
 
 }
