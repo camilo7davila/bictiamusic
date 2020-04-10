@@ -1,41 +1,47 @@
-
 <div class="container">
-    <h2>Añadir Album</h2>
-    <br>
-    <div class="row">
-      <div class="col">
-        <h4>Info del Album</h4>
-        <form class="form" [formGroup]="form" (ngSubmit)="save()">
-          <div class="container">
-            <div class="form-group">
-              <label for="name" class="control-label col-md-6"> Nombre del Album: </label>
-              <div class="col-md-12">
-                <input class="form-control" type="text" formControlName="nameAlbum">
-              </div>
+  <h2>Añadir Album</h2>
+  <br>
+  <div class="row">
+    <div class="col">
+      <h4>Info del Album</h4>
+      <form class="form" [formGroup]="form" (ngSubmit)="save()">
+        <div class="container">
+          <div class="form-group">
+            <label for="name" class="control-label col-md-6"> Nombre del Album: </label>
+            <div class="col-md-12">
+              <input #nameInput class="form-control" type="text" formControlName="nameAlbum">
             </div>
-            <div class="form-group">
-              <label for="name" class="control-label col-md-6"> Fecha: </label>
-              <div class="col-md-12">
-                <input type="text" id="dateAlbum" class="form-control" formControlName="dateAlbum">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="Imagen" class="control-label col-md-6"> Imagen: </label>
-              <div class="col-md-12">
-                <input #imgUpload class="form-control" type="file" (change)='uploadImage($event)' hidden="hidden">
-                <input type="text" [value]="imgUpload.value " class="form-control" disabled>
-                <button class="btn" type="button" (click)="imgUpload.click()">Examinar</button>
-              </div>
-              <div class="imagen-cargada">
-                <img *ngIf="(img$ | async) as img" [src]="img" width="100px">
-              </div>
-            </div>
-            <div class="container row">
-                <button class="btn offset-11" type="submit">Añadir</button>
-              </div>
           </div>
-        </form>
+          <div class="form-group">
+            <label for="name" class="control-label col-md-6"> Fecha: </label>
+            <div class="col-md-12">
+              <input placeholder="Formato: DD/MM/AAAA" #dateInput type="text" id="dateAlbum" class="form-control" formControlName="dateAlbum">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Imagen" class="control-label col-md-6"> Imagen: </label>
+            <div class="col-md-12">
+              <input #imgUpload class="form-control" type="file" (change)='uploadImage($event)' hidden="hidden">
+              <input type="text" [value]="fileName" class="form-control" disabled>
+              <button class="btn" type="button" (click)="imgUpload.click()">Examinar</button>
+            </div>
+          </div>
+          <div class="container row">
+            <button class="btn offset-11" type="submit" [disabled]="form.invalid">Añadir</button>
+          </div>
+        </div>
+      </form>
+
+      <h4>Vista Previa</h4>
+      <div class="preview">
+        <div class="imagen-cargada">
+          <img *ngIf="!(img$ | async)" src="assets/img/default-cd.png" alt="default-cd" width="100px">
+          <img *ngIf="(img$ | async) as img" [src]="img" width="100px">
+        </div>
+        <p>Nombre del Álbum: {{nameInput.value}}</p>
+        <p>Fecha de lanzamiento: {{dateInput.value}}</p>
       </div>
     </div>
   </div>
+</div>
   

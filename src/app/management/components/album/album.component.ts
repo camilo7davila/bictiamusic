@@ -4,6 +4,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { AlbumService } from 'src/app/core/services/album/album.service';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-album',
@@ -15,6 +16,7 @@ export class AlbumComponent implements OnInit {
   form: FormGroup;
   img$: Observable<any>;
   file: any;
+  fileName: string = "Selecciona tu imagen";
 
   constructor(
     private fb: FormBuilder,
@@ -29,15 +31,19 @@ export class AlbumComponent implements OnInit {
   private buildForm() {
     let autId = localStorage.getItem('id');
     this.form = this.fb.group({
-      nameAlbum: [''],
-      photo: [''],
-      dateAlbum: [''],
-      idAutor: [autId]
+      nameAlbum: ['', [Validators.required]],
+      photo: ['', [Validators.required]],   
+      dateAlbum: ['', [
+        Validators.required, 
+        Validators.pattern('([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}')
+      ]],
+      idAutor: [autId, [Validators.required]]
     })
   }
 
   uploadImage(event) {
     const file = event.target.files[0];
+    this.fileName = file.name;
     const dir = `/${this.form.get('idAutor').value}/${file.name}`;
     const fileRef = this.storage.ref(dir);
     const task = this.storage.upload(dir, file);
@@ -60,7 +66,11 @@ export class AlbumComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         albumData === data;
-      }, e => console.log(e))
+        swal.fire('Album registrado exitosamente!', '', 'success')
+      }, e => {
+        console.log(e);
+        swal.fire('Hubo un problema al crear el album', '', 'error')
+      })
   }
 
 }
