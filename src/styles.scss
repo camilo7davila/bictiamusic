@@ -11,17 +11,17 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 15px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #1b1b1b;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(103, 92, 155);
+  background: #1D7ACE;
 }
 
 /* Handle on hover */
