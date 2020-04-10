@@ -26,10 +26,12 @@ export class TrackComponent implements OnInit {
   }
 
   private buildForm() {
+    let autId = localStorage.getItem('id');
+    console.log(autId);
     this.form = this.formBuilder.group({
       nameSong: ['', [Validators.required]],
       idGener: ['', [Validators.required]],
-      idAuthor: ['', [Validators.required]],
+      idAuthor: [autId, [Validators.required]],
       idAlbum: ['', [Validators.required]],
       qualification: ['', [Validators.required]],
       imgSong: [''],
