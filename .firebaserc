@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "rent-34cee": {
+      "hosting": {
+        "spotiake": [
+          "rent-34cee"
+        ]
+      }
+    }
+  }
+}

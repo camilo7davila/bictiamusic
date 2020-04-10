@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SongService {
 
-  constructor(private http: HttpClient) { 
-    
-  }
-  
-  postSong(song: any) {
-    const url = 'https://bictiamusic.herokuapp.com/song';
-    let token = localStorage.getItem('token');
-    const h = new HttpHeaders({
-      'Authorization': 'Bearer ' + token
-    })
-    console.log('posting')
+  constructor(
+    private router:Router,
+    private http:HttpClient
+    ) { }
 
-    return this.http.post(url, song, {headers: h})
-  }
+    private url = 'https://bictiamusic.herokuapp.com'
+
+    getSong(){
+      return this.http.get<any>(this.url+'/song')
+    }
+
+   
+
 }
