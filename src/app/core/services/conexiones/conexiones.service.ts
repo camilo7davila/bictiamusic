@@ -6,6 +6,7 @@ import { Injectable,EventEmitter } from '@angular/core';
 export class ConexionesService {
 
   reproducir$ = new EventEmitter<string>()
+  estaReproduciendo$ = new EventEmitter<boolean>()
 
   constructor() { }
 }

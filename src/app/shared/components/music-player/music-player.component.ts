@@ -9,11 +9,10 @@ import { ConexionesService } from 'src/app/core/services/conexiones/conexiones.s
 })
 export class MusicPlayerComponent implements OnInit {
 
-  music:any = {
-    ruta: 'assets/music/'
-  };
-
+  
   play: string = ''
+  estado:boolean
+  autorun:string ='autoplay'
 
   constructor( public playService:ConexionesService
   ) { }
@@ -25,14 +24,39 @@ export class MusicPlayerComponent implements OnInit {
       console.log('reproducir', data)
     })
 
+    this.estaReproduciendo()
+
   }
 
-  /*play( songName:string ){
-    const song: HTMLMediaElement = document.getElementById('audio') as HTMLMediaElement;
-    song.setAttribute('src',this.music.ruta+songName+'.mp3');
-    song.play();
-  }*/
+  estaReproduciendo(){
 
+    this.playService.estaReproduciendo$
+    .subscribe((data:any)=>{
+      this.estado = data
+      console.log('Desde music', data)
+    
+      if(data){
+        let prueba1 = document.getElementById('audio')
+        prueba1.setAttribute('autoplay',"")
+        this.playPrueba()
+      }else{
+        if(!data){
+          this.pause()
+        }
+       
+      }
 
+    })
+  }
+
+  playPrueba(){
+    let prueba = document.getElementById('audio') as HTMLAudioElement
+    prueba.play()
+  }
+
+  pause(){
+    let prueba = document.getElementById('audio') as HTMLAudioElement
+    prueba.pause()
+  }
 
 }
