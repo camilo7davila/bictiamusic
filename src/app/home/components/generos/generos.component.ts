@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SongService } from 'src/app/core/services/song/song.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,8 @@ import { SongService } from 'src/app/core/services/song/song.service';
 })
 export class GenerosComponent implements OnInit {
 
-  constructor(private songService: SongService) { 
+  constructor(private songService: SongService,
+    private router: Router) { 
     this.getGeneros()
   }
 
@@ -28,7 +30,7 @@ export class GenerosComponent implements OnInit {
 
   getGeneroId(id:string){
     console.log(id)
-  
+   this.router.navigate([`/generosdetalle/${id}`])
   }
 
 }
