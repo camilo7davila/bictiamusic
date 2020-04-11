@@ -33,23 +33,22 @@
   </div>
 
   <div class="container">
-    <h5>Los Mas Escuchados</h5>
+    <h2 class="font-weight-bold">Canciones populares</h2>
+    <hr>
     <div class="container m-4">
-      <div class="row row-cols-4">
+      <div class="row row-col md-6">
         <div class="col mt-4" *ngFor="let songs of song">
-          <div class="card " style="width: 13rem;">
+          <div class="card bg-light mb-3 " style="width: 16rem;">
 
-            <div class="cont-img">
+            <div class="cont-img"  (click)="reproducir(songs.songFile)">
               <img src="{{songs.imgSong}}" class="card-img-top" alt="...">
               <img src="assets/img/play.jpg" alt="" class="card-img-top play">
             </div>
 
             <div class="card-body text-center">
-              <h5 class="card-text">{{songs.nameSong}}</h5>
-              <p>Artista: {{songs.idAuthor.firstName}}</p>
+              <h5 class="card-text font-weight-bold">{{songs.nameSong}}</h5>
               <p>Genero: {{songs.idGener.nameGener}}</p>
             </div>
-            <button class="btn btn-outline-primary btn-block" (click)="reproducir(songs.songFile)">Reproducir</button>
           </div>
         </div>
       </div>
