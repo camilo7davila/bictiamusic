@@ -22,6 +22,8 @@ export class TrackComponent implements OnInit {
   img$: Observable<any>;
   img2$: Observable<any>
 
+  fileName: string = 'Seleciona un audio';
+
   ngOnInit(): void {
   } 
 
@@ -42,6 +44,7 @@ export class TrackComponent implements OnInit {
 
   uploadImage(event) {
     const file = event.target.files[0];
+    this.fileName = file.name;
     const dir = `/${this.form.get('idAuthor').value}/${file.name}`;
     const fileRef = this.storage.ref(dir);
     const task = this.storage.upload(dir, file);

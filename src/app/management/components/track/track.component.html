@@ -4,28 +4,28 @@
   <form class="form" [formGroup]="form" (ngSubmit)="save()">
     <h4>Info de la Pista</h4>
     <div class="row">
-      <div class="col">
+      <div class="col border-right">
         <div class="container">
           <div class="form-group">
             <label for="name" class="control-label col-md-6"> Canción: </label>
             <div class="col-md-12">
-              <input class="form-control" type="text" formControlName="nameSong">
+              <input #name class="form-control" type="text" formControlName="nameSong">
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-6"> Album: </label>
             <div class="col-md-12">
-              <input class="form-control" type="text" formControlName="idAlbum">
+              <input #album class="form-control" type="text" formControlName="idAlbum">
             </div>
           </div>
           <div class="form-group">
             <label for="name" class="control-label col-md-6"> Género: </label>
             <div class="col-md-12">
-              <input class="form-control" type="text" formControlName="idGener">
+              <input #gener class="form-control" type="text" formControlName="idGener">
             </div>
           </div>
           <div class="form-group">
-            <label for="name" class="control-label col-md-6"> Q: </label>
+            <label for="name" class="control-label col-md-6"> Calificación: </label>
             <div class="col-md-12">
               <input class="form-control" type="number" formControlName="qualification">
             </div>
@@ -35,13 +35,15 @@
 
       <div class="col">
         <div class="form-group">
-          <label for="file" class="labelfile"><i class="fas fa-upload"></i> Subir audio </label>
+          <label for="Imagen" class="control-label col-md-6"> Imagen: </label>
           <div class="col-md-12">
-            <input class="form-control" type="file" name="file" id="file" class="inputfile" (change)='uploadMP3($event)'>
+            <input #songUpload class="form-control" type="file" (change)='uploadImage($event)' hidden="hidden">
+            <input type="text" [value]="fileName" class="form-control" disabled>
+            <button class="btn" type="button" (click)="songUpload.click()">Examinar</button>
           </div>
-          <div class="container row">
-            <button type="submit" class="btn offset-10">Submit</button>
-          </div>
+        </div>
+        <div class="container row">
+          <button type="submit" class="btn offset-10">Submit</button>
         </div>
       </div>
     </div>
@@ -57,10 +59,9 @@
         <img src="assets/img/default-cd.png" alt="default-cd">
       </div>
       <div class="col">
-        <p><b>Canción:</b> xxxxx</p>
-        <p><b>Artista:</b> xxxxx</p>
-        <p><b>Album:</b> xxxxxxx</p>
-        <p><b>Género:</b> xxxxxx</p>
+        <p><b>Canción:</b> {{name.value}}</p>
+        <p><b>Album:</b> {{album.value}}</p>
+        <p><b>Género:</b> {{gener.value}} </p>
 
         <div class="container row">
           <button class="btn offset-8">Agregar</button>

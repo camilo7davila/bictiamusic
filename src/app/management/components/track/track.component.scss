@@ -1,6 +1,3 @@
-.form{
-    border-right: solid 1px darkgray;
-}
 
 h2{
     color: #0071BC;
@@ -15,6 +12,10 @@ h2{
 
 .form-group input, select{
     background: #DDDDDD;
+}
+
+.border-right {
+    border-right: 1px solid darkgray;
 }
 
 .preview {
