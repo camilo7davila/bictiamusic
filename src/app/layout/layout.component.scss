@@ -6,8 +6,8 @@
 .contenedor {
   display: grid;
   grid-template-columns: 19% 50% 31%;
-  grid-template-rows: 10% 70% 10% 10%;
-  margin: 10px auto;
+  grid-template-rows: 10% 70% 5% 15%;
+  margin: 0 auto;
   width: 100%;
   max-width: 1800px;
   height: 100vh;
@@ -26,7 +26,6 @@
   grid-column: 2 / span 2;
   grid-row: 1 / span 1;
  // background: rgb(27, 27, 27);
-  padding-bottom: 20px;
 }
 
 .contenedor .router-outlet {
@@ -34,7 +33,7 @@
   grid-row: 2/span 2;
   overflow: scroll;
   height: 80vh;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .contenedor app-music-player {
