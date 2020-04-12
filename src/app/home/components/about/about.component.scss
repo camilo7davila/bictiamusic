@@ -2,17 +2,3 @@
     animation-name: fadeInRight;
     animation-duration: 2s;
 }
-
-.carousel-item img{
-    height: 100px;
-    padding-right: 20px;
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-
-@media screen and (max-width: 720px){
-    .carousel-item img{
-        height: 100px;
-        margin: 5%;
-    }
-}

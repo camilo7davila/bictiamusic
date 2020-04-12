@@ -23,7 +23,6 @@
                         <th>Imagen</th>
                         <th><i class="fas fa-heart fa-1x"></i></th>
                         <th>Canción</th>
-                        <th>Artista</th>
                         <th>Album</th>
                         <th>Reproducir</th>
                     </tr>
@@ -37,9 +36,8 @@
                             <i class="cod fas fa-plus-square fa-2x" (click)="getFavoritos(generos._id)"></i>
                             <i class="fas fa-minus-square fa-2x" (click)="removeFavoritos(generos._id)" ></i>
                         </td>
-
                         <td>{{generos.nameSong}}</td>
-                        <td>{{generos.idAuthor.user}}</td>
+                        <!--<td>{{generos.idAuthor.user}}</td>-->
                         <td>{{generos.idAlbum.nameAlbum}}</td>
 
                         <td *ngIf="!estados; else elseBlock" (click)="enviarCancion(generos);estado(true)"

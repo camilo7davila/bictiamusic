@@ -26,6 +26,10 @@ export class SongService {
     return this.http.get<any>(`${this.url}/search?type=2&id=${id}`)
   }
 
+  getFavoritoDetalle(id:string){
+    return this.http.get<any>(`${this.url}/search?type=3&id=${id}`)
+  }
+
   postSong(song: any) {
     const url = 'https://bictiamusic.herokuapp.com/song';
     let token = localStorage.getItem('token');
@@ -70,5 +74,7 @@ export class SongService {
   getFavoritos(id:string){
     return this.http.get<any>(`${this.url}/user/userbyid/${id}`)
   }
+
+
 
 }

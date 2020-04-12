@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SongService } from 'src/app/core/services/song/song.service';
 import { ActivatedRoute } from '@angular/router';
 import { ConexionesService } from 'src/app/core/services/conexiones/conexiones.service';
+import swal from 'sweetalert2'
 
 
 @Component({
@@ -11,11 +12,13 @@ import { ConexionesService } from 'src/app/core/services/conexiones/conexiones.s
 })
 export class GeneroDetalleComponent implements OnInit {
 
+  alertSweet: string = ''
+
   generoDetalle: any[] = [
 
   ]
 
-  Addfavoritos: any[] = []
+  addfavoritos: any[] = []
 
 
   private id;
@@ -27,7 +30,9 @@ export class GeneroDetalleComponent implements OnInit {
   constructor(private songService: SongService,
     private router: ActivatedRoute,
     private playService: ConexionesService
-  ) { }
+  ) { 
+    this.listadoFavoritos()
+  }
 
   ngOnInit(): void {
 
@@ -71,7 +76,7 @@ export class GeneroDetalleComponent implements OnInit {
     this.songService.patchFavoritos(user, idSong)
       .subscribe((data: any) => {
         console.log('Favoritos ------>', data.statusCode)
-      })
+      },err => swal.fire(`${err.error.error}`, this.alertSweet, 'warning'))
   }
 
   removeFavoritos(idSong: string) {
@@ -81,6 +86,15 @@ export class GeneroDetalleComponent implements OnInit {
 
         console.log('Remove fav ---->', data.statusCode)
       })
+  }
+
+  listadoFavoritos(){
+    let id = localStorage.getItem('id')
+    this.songService.getFavoritos(id)
+    .subscribe((data:any)=>{
+      this.addfavoritos=data.message[0].favSong[0]._id
+      console.log('Listado fav->>>',data.message[0].favSong)
+    })
   }
 
 }
