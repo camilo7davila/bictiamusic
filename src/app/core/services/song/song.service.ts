@@ -38,7 +38,18 @@ export class SongService {
 
   }
 
-  getFavoritos(idFav: string) {
-    return this.http.get<any>(`${this.url}/addFavorite/${idFav}`)
+  postFavoritos(idFav: string) {
+
+    const url = `${this.url}/addFavorite/${idFav}`
+
+    let token = localStorage.getItem('token');
+
+    const h = new HttpHeaders({
+      'Authorization': 'Bearer ' + token
+    })
+    console.log('AddFavoritos')
+
+    return this.http.post<any>(url, { headers: h })
   }
+
 }

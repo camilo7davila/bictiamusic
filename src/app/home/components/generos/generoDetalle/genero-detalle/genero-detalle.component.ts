@@ -67,12 +67,13 @@ export class GeneroDetalleComponent implements OnInit {
   }
 
   getFavoritos(idFav: string) {
-    this.songService.getFavoritos(idFav)
+    this.songService.postFavoritos(idFav)
       .subscribe((data: any) => {
         console.log('Favoritos ------>', data)
       })
 
     console.log(idFav)
   }
+
 
 }
