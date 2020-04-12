@@ -49,7 +49,17 @@ export class AuthService {
     } else {
       return false
     }
+  }
 
+  validatorArtist() {
+
+    let artista = localStorage.getItem('artista');
+
+    if(artista=='true'){      
+      return true
+    }else{
+      return false
+    }
   }
 
 }

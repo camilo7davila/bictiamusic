@@ -40,13 +40,13 @@
         <div class="col mt-4" *ngFor="let songs of song">
           <div class="card bg-light mb-3 " style="width: 16rem;">
 
-            <div class="cont-img"  (click)="reproducir(songs.songFile)">
+            <div class="cont-img" (click)="reproducir(songs.songFile)">
               <img src="{{songs.imgSong}}" class="card-img-top" alt="...">
               <img src="assets/img/play.jpg" alt="" class="card-img-top play">
             </div>
 
             <div class="card-body text-center">
-              <h5 class="card-text font-weight-bold">{{songs.nameSong}}</h5>
+              <h5 class="card-text font-weight-bold">{{songs.nameSong | slice : 0  : 15 }} </h5>
               <p>Genero: {{songs.idGener.nameGener}}</p>
             </div>
           </div>
