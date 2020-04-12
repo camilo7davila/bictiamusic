@@ -11,53 +11,68 @@ import { ConexionesService } from 'src/app/core/services/conexiones/conexiones.s
 })
 export class GeneroDetalleComponent implements OnInit {
 
-  generoDetalle:any[]=[
-  
+  generoDetalle: any[] = [
+
   ]
   private id;
   public genero;
   public estados: false;
-  public posiciones:0;
+  public posiciones: 0;
+  public favoritosEstado: false;
 
   constructor(private songService: SongService,
-    private router:ActivatedRoute,
-    private playService:ConexionesService
-    ) { }
+    private router: ActivatedRoute,
+    private playService: ConexionesService
+  ) { }
 
   ngOnInit(): void {
-    this.router.params.subscribe((data:any)=>{
-    this.id = data.id
+
+    this.router.params.subscribe((data: any) => {
+      this.id = data.id
     })
+
     this.getGeneroDetalle()
-    this.estados 
+    this.estados
 
   }
-  
-  getGeneroDetalle(){
+
+  getGeneroDetalle() {
     this.songService.getGeneroDetalle(this.id)
-    .subscribe((data)=>{
-      console.log(data)
-      this.generoDetalle = data.message
-      this.genero = data.message[0].idGener.nameGener
-      console.log(data.message)
-     
-    })
+      .subscribe((data) => {
+        console.log(data)
+        this.generoDetalle = data.message
+        this.genero = data.message[0].idGener.nameGener
+        console.log(data.message)
+
+      })
   }
 
-  enviarCancion(cancion:string){
+  enviarCancion(cancion: string) {
     console.log(cancion)
     this.playService.reproducir$.emit(cancion)
   }
 
-  estado(estado:any){
-   this.estados = estado
-   console.log(this.estados)
-   this.playService.estaReproduciendo$.emit(this.estados)
+  estado(estado: any) {
+    this.estados = estado
+    this.playService.estaReproduciendo$.emit(this.estados)
   }
 
-  posicion(posicion:any){
+  posicion(posicion: any) {
     console.log(posicion)
     this.posiciones = posicion
   }
-  
+
+  favEstado(estadoFav: any) {
+    this.favoritosEstado = estadoFav
+  }
+
+  getFavoritos(idFav: string) {
+    this.songService.getFavoritos(idFav)
+      .subscribe((data: any) => {
+        console.log('Favoritos ------>', data)
+      })
+
+    console.log(idFav)
+  }
+
 }

@@ -16,7 +16,7 @@ export class GuardGuard implements CanActivate {
   {
     
   }
-
+ 
   canActivate(){
     if(this.authService.loggedIn()){
       return true;

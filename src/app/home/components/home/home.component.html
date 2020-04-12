@@ -46,7 +46,7 @@
             </div>
 
             <div class="card-body text-center">
-              <h5 class="card-text font-weight-bold">{{songs.nameSong}}</h5>
+              <h5 class="card-text font-weight-bold">{{songs.nameSong | slice : 0  : 15 }} </h5>
               <p>Genero: {{songs.idGener.nameGener}}</p>
             </div>
           </div>

@@ -5,7 +5,7 @@ import { ArtistComponent } from './components/artist/artist.component';
 import { AlbumComponent } from './components/album/album.component';
 import { TrackComponent } from './components/track/track.component';
 import { AccountComponent } from './components/account/account.component';
-
+import { ArtistGuardGuard } from "../core/guard/artist-guard.guard";
 
 const routes: Routes = [
   {
@@ -22,11 +22,13 @@ const routes: Routes = [
   },
   {
     path:'album',
-    component: AlbumComponent
+    component: AlbumComponent,
+    canActivate:[ArtistGuardGuard]
   },
   {
     path:'track',
-    component: TrackComponent
+    component: TrackComponent,
+    canActivate:[ArtistGuardGuard]
   },
 ];
 
