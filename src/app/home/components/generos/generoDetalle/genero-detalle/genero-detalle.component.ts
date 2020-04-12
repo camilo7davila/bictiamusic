@@ -76,6 +76,7 @@ export class GeneroDetalleComponent implements OnInit {
     this.songService.patchFavoritos(user, idSong)
       .subscribe((data: any) => {
         console.log('Favoritos ------>', data.statusCode)
+        swal.fire('Se ha agregado correctamente',this.alertSweet,'success')
       },err => swal.fire(`${err.error.error}`, this.alertSweet, 'warning'))
   }
 
