@@ -47,7 +47,7 @@ export class GeneroDetalleComponent implements OnInit {
       })
   }
 
-  enviarCancion(cancion: string) {
+  enviarCancion(cancion: any) {
     console.log(cancion)
     this.playService.reproducir$.emit(cancion)
   }

@@ -33,7 +33,7 @@ export class MusicPlayerComponent implements OnInit {
         this.author = this.song.idAuthor.user
         this.songName = this.song.nameSong
         this.state = 'pause'
-        console.log('reproducir', data.songFile)
+        
       })
 
     this.estaReproduciendo()

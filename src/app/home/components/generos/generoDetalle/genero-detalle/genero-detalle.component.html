@@ -44,7 +44,7 @@
                         <td>{{generos.idAuthor.user}}</td>
                         <td>{{generos.idAlbum.nameAlbum}}</td>
 
-                        <td *ngIf="!estados; else elseBlock" (click)="enviarCancion(generos.songFile);estado(true)"
+                        <td *ngIf="!estados; else elseBlock" (click)="enviarCancion(generos);estado(true)"
                              class="cambiarColor">
 
                             <i *ngIf="i!==posiciones" class="far fa-play-circle fa-2x " style="cursor: pointer;"
