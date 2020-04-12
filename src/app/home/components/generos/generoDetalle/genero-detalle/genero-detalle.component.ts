@@ -83,7 +83,7 @@ export class GeneroDetalleComponent implements OnInit {
     let user = localStorage.getItem('id')
     this.songService.removeFavoritos(user, idSong)
       .subscribe((data: any) => {
-
+        swal.fire('Se ha removido correctamente',this.alertSweet,'success')
         console.log('Remove fav ---->', data.statusCode)
       })
   }
