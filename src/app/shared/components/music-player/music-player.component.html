@@ -1,4 +1,24 @@
-<audio id="audio" src="{{play}}" controls autoplay hidden="hidden"></audio>
+<audio id="audio" src="{{ song.songFile }}" controls autoplay hidden="hidden"></audio>
 
-<button (click)="playPrueba()">Play</button>
-<button (click)="pause()">Pause</button>
+<div class="playerContainer">
+    <div class="songInfo">
+        <img src="assets/img/default-cd.png" alt="default-cd">
+        <p> {{ author }} - {{ songName }}</p>
+    </div>
+    <div class="player">
+        <div class="controls">
+            <i [class]=" 'fa fa-'+state+'-circle fa-2x' " (click)="pSong()" aria-hidden="true"></i>
+        </div>
+        <div id="bar">
+            <span>{{ currentTime }}</span>
+            <div id="backBar" (click)="changePos($event)">
+                <div id="fill"></div>
+                <div id="handle"></div>
+            </div>
+            <span>{{ totalTime }}</span>
+        </div>
+    </div>
+    <div class="volume">
+        
+    </div>
+</div>
