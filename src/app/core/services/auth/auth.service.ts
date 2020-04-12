@@ -52,6 +52,17 @@ export class AuthService {
       return false
     }
   }
+
+  validatorArtist() {
+
+    let artista = localStorage.getItem('artista');
+
+    if(artista=='true'){      
+      return true
+    }else{
+      return false
+    }
+  }
   updateUser(id:string, user: any){
     let header = new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')});
       //header.set( "Authorization", "Bearer "+localStorage.getItem('token'));

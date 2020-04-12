@@ -11,11 +11,10 @@ export class HeaderComponent implements OnInit {
 
   changeName:any = {
     name : localStorage.getItem('dataUser'),
-    photo: localStorage.getItem('imagen')
-  
+    photo: localStorage.getItem('imagen'),
+    artista:localStorage.getItem('artista')
   };
   
- 
 
   constructor(private router:Router) {
    }
@@ -23,10 +22,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   logout(){
     localStorage.clear()
     this.router.navigate(['/auth/login'])
   }
 
+
+
+ 
 
 }

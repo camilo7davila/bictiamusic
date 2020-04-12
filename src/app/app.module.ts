@@ -11,6 +11,11 @@ import { RouterModule, Router } from '@angular/router';
 //Guard
 import { GuardGuard } from './core/guard/guard.guard';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +27,9 @@ import { GuardGuard } from './core/guard/guard.guard';
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
   ],
   providers: [GuardGuard],
   bootstrap: [AppComponent]

@@ -1,4 +1,28 @@
+<audio id="audio" src="{{ song.songFile }}" controls autoplay hidden="hidden"></audio>
 
-<audio id="audio" src="http://bictiamusic.herokuapp.com/app/songFiles/1586392181961.mp3" controls></audio>
-
-<button (click)="play('prueba 34')">rep</button>
+<div class="playerContainer">
+    <div class="songInfo">
+        <img [src]="imgSrc" alt="default-cd">
+        <p> {{ author }} - {{ songName }}</p>
+    </div>
+    <div class="player">
+        <div class="controls">
+            <i [class]=" 'fa fa-'+state+'-circle fa-2x' " (click)="pSong()" aria-hidden="true"></i>
+        </div>
+        <div id="bar">
+            <span>{{ currentTime }}</span>
+            <div id="backBar" (click)="changePos($event)">
+                <div id="fill"></div>
+                <div id="handle"></div>
+            </div>
+            <span>{{ totalTime }}</span>
+        </div>
+    </div>
+    <div class="volume">
+        <i [class]=" 'fa fa-volume-'+volIcon+' fa-lg'" aria-hidden="true" (click)="setVol()"></i>
+        <div id="volBar" (click)="changeVol($event)">
+            <div id="volFill"></div>
+            <div id="volHandle"></div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,131 @@
-#audio{
-    background-color: black;
+$BitBlue: #1d7ace;
+
+.playerContainer {
+    background-color: #222;
     width: 100%;
-    color:white;
-    border: black 20px solid;
     
+    color:white;
+    border: #222 20px solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+    .songInfo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        img {
+            width: 3rem;
+            margin-right: 10px;
+        }
+        p {
+            margin-top: 10px;
+            font-size: large;
+        }
     }
+    
+    
+    .player {
+        transform: translate(30%);
+        display: flex;
+        flex-direction: column;
+        margin-top: -10px;
+
+        .controls {
+            display: flex;
+
+            i {
+                transform: translate(-50%);
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            i:hover {
+                color: $BitBlue;
+            }
+        }
+        
+
+        #bar {
+            
+            display: flex;
+            transform: translate(-50%);
+
+            #backBar {
+                width: 600px;
+                height: 5px;
+                background-color: lightgray;
+                margin: 10px;
+                display: flex;
+                border-radius: 50px;
+                cursor: pointer;
+                
+
+                #fill {
+                    height: 5px;
+                    width: 10px;
+                    background-color: $BitBlue;
+                    border-radius: 20px;
+                }
+                
+                #handle {
+                    height: 8px;
+                    width: 8px;
+                    background-color: $BitBlue;
+                    border-radius: 50%;
+                    margin-left: -5px;
+                    margin-top: -1px;
+                    transform: scale(2);
+                }
+            }
+        }
+    }
+
+    .volume {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        margin-right: 20px;
+
+        i {
+            margin-top: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        i:hover {
+            color: $BitBlue;
+        }
+
+        #volBar {
+            width: 100px;
+            height: 5px;
+            background-color: lightgray;
+            margin: 10px;
+            display: flex;
+            border-radius: 50px;
+            cursor: pointer;
+            
+
+            #volFill {
+                height: 5px;
+                width: 100%;
+                background-color: $BitBlue;
+                border-radius: 20px;
+            }
+            
+            #volHandle {
+                height: 8px;
+                width: 8px;
+                background-color: $BitBlue;
+                border-radius: 50%;
+                margin-left: -5px;
+                margin-top: -1px;
+                transform: scale(2);
+            }
+        }
+
+    }
+}

@@ -1,60 +1,61 @@
 <div class="container">
   <h2>Añadir Pista</h2>
   <br>
-  <div class="row">
-    <div class="col">
-      <h4>Info de la Pista</h4>
-      <form class="form">
+  <form class="form" [formGroup]="form" (ngSubmit)="save()">
+    <h4>Info de la Pista</h4>
+    <div class="row">
+      <div class="col border-right">
         <div class="container">
           <div class="form-group">
             <label for="name" class="control-label col-md-6"> Canción: </label>
             <div class="col-md-12">
-              <input class="form-control" type="text">
+              <input #name class="form-control" type="text" formControlName="nameSong">
             </div>
           </div>
           <div class="form-group">
-            <label for="name" class="control-label col-md-6"> Artista: </label>
+            <label class="control-label col-md-6"> Album: </label>
             <div class="col-md-12">
-              <input class="form-control" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="name" class="control-label col-md-6"> Album: </label>
-            <div class="col-md-12">
-              <input class="form-control" type="text">
+              <select #album class="form-control" type="text" formControlName="idAlbum" (input)="prevImg($event)">
+                <ng-container *ngFor="let album of albums">
+                  <option [value]="album._id">{{ album.nameAlbum }}</option>
+                </ng-container>
+              </select>
             </div>
           </div>
           <div class="form-group">
             <label for="name" class="control-label col-md-6"> Género: </label>
             <div class="col-md-12">
-              <input class="form-control" type="text">
+              <select #gener class="form-control" type="text" formControlName="idGener">
+                <ng-container *ngFor="let genre of genres">
+                  <option [value]="genre._id">{{genre.nameGener}}</option>
+                </ng-container>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name" class="control-label col-md-6"> Calificación: </label>
+            <div class="col-md-12">
+              <input class="form-control" type="number" max="5" min="1" formControlName="qualification">
             </div>
           </div>
         </div>
-      </form>
-    </div>
-    <div class="col">
-      <h4 style="color: white;">.</h4>
-      <div class="form-group">
-        <label for="name" class="control-label col-md-6"> Imagen: </label>
-        <div class="col-md-12">
-          <input class="form-control" type="file">
-        </div>
-        <div class="container row">
-          <button class="btn offset-10">Examinar</button>
-        </div>
       </div>
-      <div class="form-group">
-        <label for="name" class="control-label col-md-6"> Audio: </label>
-        <div class="col-md-12">
-          <input class="form-control" type="file">
+
+      <div class="col">
+        <div class="form-group">
+          <label for="Imagen" class="control-label col-md-6"> Audio: </label>
+          <div class="col-md-12">
+            <input #songUpload class="form-control" type="file" (change)='uploadMP3($event)' hidden="hidden">
+            <input type="text" [value]="fileName" class="form-control" disabled>
+            <button class="btn" type="button" (click)="songUpload.click()">Examinar</button>
+          </div>
         </div>
         <div class="container row">
-          <button class="btn offset-10">Examinar</button>
+          <button type="submit" class="btn offset-10" [disabled]="form.invalid">Submit</button>
         </div>
       </div>
     </div>
-  </div>
+  </form>
   <div class="container preview">
     <div class="row">
       <div class="col">
@@ -63,17 +64,20 @@
     </div>
     <div class="row">
       <div class="col">
-        <img src="assets/img/default-cd.png" alt="default-cd">
+        <img [src]="imgSrc" alt="default-cd">
       </div>
       <div class="col">
-        <p><b>Canción:</b> xxxxx</p>
-        <p><b>Artista:</b> xxxxx</p>
-        <p><b>Album:</b> xxxxxxx</p>
-        <p><b>Género:</b> xxxxxx</p>
+        <p><b>Canción:</b> {{name.value}}</p>
+        <p><b>Album:</b> 
+          <ng-container *ngIf="album.options[album.selectedIndex] !== undefined"> {{album.options[album.selectedIndex].innerText}}</ng-container>
+        </p>
+        <p><b>Género:</b> 
+          <ng-container *ngIf="gener.options[gener.selectedIndex] !== undefined"> {{gener.options[gener.selectedIndex].innerText}}</ng-container>
+        </p>
 
-        <div class="container row">
-            <button class="btn offset-8">Agregar</button>
-          </div>
+        <!-- <div class="container row">
+          <button class="btn offset-8" (click)="test()">test</button>
+        </div> -->
       </div>
     </div>
   </div>

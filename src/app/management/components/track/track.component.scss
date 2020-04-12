@@ -1,6 +1,3 @@
-.form{
-    border-right: solid 1px darkgray;
-}
 
 h2{
     color: #0071BC;
@@ -17,6 +14,10 @@ h2{
     background: #DDDDDD;
 }
 
+.border-right {
+    border-right: 1px solid darkgray;
+}
+
 .preview {
     border-top: solid 1px darkgray;
     margin-top: 3rem;
@@ -31,4 +32,24 @@ h2{
         width: 50%;
     }
 
+}
+
+.inputfile{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile, .labelfile{
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: #0071BC;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
