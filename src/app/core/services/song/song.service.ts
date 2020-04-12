@@ -33,6 +33,7 @@ export class SongService {
       'Authorization': 'Bearer ' + token
     })
     console.log('posting')
+    console.log(h)
 
     return this.http.post(url, song, { headers: h })
 

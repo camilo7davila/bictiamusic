@@ -40,7 +40,7 @@ export class TrackComponent implements OnInit {
       .subscribe( data => {
         this.genres = data.message
       })
-    this.albumService.getAlbums()
+    this.albumService.getAlbumByAuthor()
       .subscribe( data => {
         this.albums = data.message
       })
