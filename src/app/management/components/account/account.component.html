@@ -5,16 +5,14 @@
             <div class="col">    
                 <div class="data-update">
                     <h6>Info de Usuario</h6>
-                    <form class="form" [formGroup]="form" novalidate (ngSubmit)="save($event)">
+                    <form class="form" [formGroup]="form" novalidate (ngSubmit)="UpdateUser()">
                         <div class="container">
                             <div class="form-group">
                                 <label for="name" class="control-label col-md-6">Nombre usuario: </label>
                                 <div class="col-md-10">
-                                        <input class="form-control" type="text" formControlName="name" [(ngModel)]="changeName.name"> 
+                                        <input class="form-control" type="text" formControlName="name" [(ngModel)]="changeName.user"> 
                                     </div>
                                     <div class="alert alert-danger p-1 text-center mt-1 col-md-10" role="alert" *ngIf="form.get('name').hasError('required')"> El nombre de usuario es requerido
-                                    </div>
-                                    <div class="alert alert-danger p-1 text-center mt-1 col-md-10" role="alert" *ngIf="form.get('name').hasError('minLength')"> El nombre de usuario debe tener minimo 4 caracteres
                                     </div>
                                     </div>
                                     <div class="form-group">
@@ -46,27 +44,28 @@
                              <br>
                     <div class="password-update">
                         <h6>Cambiar Contraseña</h6>
-                        <form class="form" [formGroup]="passForm" >
+                        <form class="form" [formGroup]="passForm" novalidate (ngSubmit)="ConfirmPassword()">
                             <div class="container">
                                <div class="form-group">
                                    <label for="email" class="control-label col-md-4">Nueva: </label>
                                    <div class="col-md-10">
                                        <input class="form-control" type="password" formControlName="newPassword">
                                    </div>
-                                   <div class="mt-2 alert alert-success p-1 text-center mt-1 col-md-10"
-                                   role="alert" >
-                                   Escriba una nueva contraseña
-                               </div>
                                </div>
                                <div class="form-group">
                                    <label for="age" class="control-label col-md-4">Repetir: </label>
                                    <div class="col-md-10">
                                        <input class="form-control" type="password" formControlName="confirmPassword">
                                    </div>
+                                   
+                               </div>
+                               <div class="mt-2 alert alert-danger p-1 text-center mt-1 col-md-10"
+                                   role="alert" *ngIf="passForm.get('newPassword').value !== passForm.get('confirmPassword').value">
+                                   Las contraseñas no coinciden</div>
                                </div>
 
-                                    <button class="btn offset-8">Guardar</button>
-                            </div>
+                                    <button class="btn offset-8" [disabled]="form.invalid">Guardar</button>
+                           
                        </form>
                     </div>
             </div>
@@ -85,7 +84,7 @@
                                 <button class="btn offset-8">Buscar</button>
                                     <div class="container imagen">
                                         <div class="imagen-profile">
-                                           <img [src]="changeName.photo" alt="">
+                                           <img  alt="">
                                         </div>
                                     </div>
                                 <button class="btn offset-8">Guardar</button>

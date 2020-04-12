@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccountComponent } from 'src/app/management/components/account/account.component';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,8 @@ export class HeaderComponent implements OnInit {
   
  
 
-  constructor(private router:Router) { }
+  constructor(private router:Router) {
+   }
 
   ngOnInit(): void {
   }

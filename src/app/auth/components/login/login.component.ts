@@ -44,6 +44,11 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', data.message.token)
         localStorage.setItem('dataUser',data.message.user)
         localStorage.setItem('imagen', data.message.photo)
+        localStorage.setItem('id',data.message.id)    
+        localStorage.setItem('firstName',data.message.firstName)
+        localStorage.setItem('lastName',data.message.lastName)    
+        localStorage.setItem('idUser',data.message.id)  
+        localStorage.setItem('password', data.message.password)  
         this.router.navigate(['/home'])
         swal.fire(`Bienvenido ${this.userFromHTML.email}`, this.alertSweet, 'success')
       },
