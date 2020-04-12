@@ -59,5 +59,4 @@ export class AuthService {
       console.log ('datos '+user.user, user.email, user.firstName, user.lastName);
       return this.http.patch(this.url + '/user/edituser/' + id, user,{ headers : header})
   }
-
 }

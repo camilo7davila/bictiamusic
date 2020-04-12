@@ -19,6 +19,7 @@ export class AccountComponent implements OnInit {
   passForm: FormGroup;
   id: any;
   canChangePwd: boolean;
+  img$:any;
 
   changeName: any = {
     user: localStorage.getItem('dataUser'),
