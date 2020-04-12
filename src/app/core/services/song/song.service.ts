@@ -52,4 +52,8 @@ export class SongService {
     return this.http.post<any>(url, { headers: h })
   }
 
+  getArtistas(){
+    return this.http.get<any>(`${this.url}/user/artist`)
+  }
+
 }

@@ -29,9 +29,11 @@ export class HomeComponent implements OnInit {
       .subscribe((data: any) => {
         this.song = data.message;
         console.log(this.song)
+
         let songsFilter = data.message.filter(songs => {
           return songs.idGener.nameGener === 'Electronica'
         });
+        
         console.log(songsFilter)
       })
   }
