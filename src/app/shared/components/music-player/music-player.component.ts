@@ -10,8 +10,11 @@ import { ConexionesService } from 'src/app/core/services/conexiones/conexiones.s
 export class MusicPlayerComponent implements OnInit {
 
   currentTime: string = '0:00'
+  vol: number = 1
+  volIcon: string = "up"
   totalTime: string = '0:00'
   fillBar: HTMLElement
+  volFill: HTMLElement
   player: HTMLAudioElement
   state: string = 'play';
   song: any = {}
@@ -27,6 +30,7 @@ export class MusicPlayerComponent implements OnInit {
     // this.pSong()
     this.player = document.getElementById('audio') as HTMLAudioElement
     this.fillBar = document.getElementById('fill') as HTMLElement
+    this.volFill = document.getElementById('volFill') as HTMLElement
     this.playService.reproducir$
       .subscribe(data => {
         this.song = data
@@ -50,6 +54,30 @@ export class MusicPlayerComponent implements OnInit {
     let pos = $event.offsetX / $event.target.offsetWidth
     if (this.player.currentSrc !== '') {
       this.player.currentTime = pos * this.player.duration
+    }
+  }
+  changeVol($event) {
+    let pos = $event.offsetX / $event.target.offsetWidth
+    if (this.player.currentSrc !== '') {
+      this.player.volume = pos
+      this.volFill.style.width = pos * 100 + '%'
+      if(pos < 0.1) this.volIcon = 'off'
+      else if (pos < 0.5) this.volIcon = 'down'
+      else this.volIcon = 'up'
+    }
+  }
+
+  setVol() {
+    if(this.player.currentSrc !== '') {
+      if(this.volIcon == 'up') {
+        this.player.volume = 0
+        this.volFill.style.width = '0%'
+        this.volIcon = 'off'
+      } else {
+        this.player.volume = 1
+        this.volFill.style.width = '100%'
+        this.volIcon = 'up'
+      }
     }
   }
 

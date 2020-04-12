@@ -19,6 +19,10 @@
         </div>
     </div>
     <div class="volume">
-        
+        <i [class]=" 'fa fa-volume-'+volIcon+' fa-lg'" aria-hidden="true" (click)="setVol()"></i>
+        <div id="volBar" (click)="changeVol($event)">
+            <div id="volFill"></div>
+            <div id="volHandle"></div>
+        </div>
     </div>
 </div>

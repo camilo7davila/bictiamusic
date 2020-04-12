@@ -84,6 +84,48 @@ $BitBlue: #1d7ace;
     }
 
     .volume {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        margin-right: 20px;
+
+        i {
+            margin-top: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        i:hover {
+            color: $BitBlue;
+        }
+
+        #volBar {
+            width: 100px;
+            height: 5px;
+            background-color: lightgray;
+            margin: 10px;
+            display: flex;
+            border-radius: 50px;
+            cursor: pointer;
+            
+
+            #volFill {
+                height: 5px;
+                width: 100%;
+                background-color: $BitBlue;
+                border-radius: 20px;
+            }
+            
+            #volHandle {
+                height: 8px;
+                width: 8px;
+                background-color: $BitBlue;
+                border-radius: 50%;
+                margin-left: -5px;
+                margin-top: -1px;
+                transform: scale(2);
+            }
+        }
 
     }
 }
