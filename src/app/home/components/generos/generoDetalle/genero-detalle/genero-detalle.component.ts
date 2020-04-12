@@ -14,11 +14,15 @@ export class GeneroDetalleComponent implements OnInit {
   generoDetalle: any[] = [
 
   ]
+
+  Addfavoritos: any[] = []
+
+
   private id;
   public genero;
   public estados: false;
   public posiciones: 0;
-  public favoritosEstado: false;
+
 
   constructor(private songService: SongService,
     private router: ActivatedRoute,
@@ -43,7 +47,6 @@ export class GeneroDetalleComponent implements OnInit {
         this.generoDetalle = data.message
         this.genero = data.message[0].idGener.nameGener
         console.log(data.message)
-
       })
   }
 
@@ -62,18 +65,22 @@ export class GeneroDetalleComponent implements OnInit {
     this.posiciones = posicion
   }
 
-  favEstado(estadoFav: any) {
-    this.favoritosEstado = estadoFav
-  }
-
-  getFavoritos(idFav: string) {
-    this.songService.postFavoritos(idFav)
+  getFavoritos(idSong: string) {
+    let user = localStorage.getItem('id')
+    
+    this.songService.patchFavoritos(user, idSong)
       .subscribe((data: any) => {
-        console.log('Favoritos ------>', data)
+        console.log('Favoritos ------>', data.statusCode)
       })
-
-    console.log(idFav)
   }
 
+  removeFavoritos(idSong: string) {
+    let user = localStorage.getItem('id')
+    this.songService.removeFavoritos(user, idSong)
+      .subscribe((data: any) => {
+
+        console.log('Remove fav ---->', data.statusCode)
+      })
+  }
 
 }

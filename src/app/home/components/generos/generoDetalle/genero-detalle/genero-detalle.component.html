@@ -21,7 +21,7 @@
                 <thead class="thead-dark">
                     <tr class="bg-info text-center">
                         <th>Imagen</th>
-                        <th>#</th>
+                        <th><i class="fas fa-heart fa-1x"></i></th>
                         <th>Canción</th>
                         <th>Artista</th>
                         <th>Album</th>
@@ -29,23 +29,21 @@
                     </tr>
                 </thead>
                 <tbody class="text-center">
+
                     <tr *ngFor="let generos of generoDetalle; let i = index;">
-                        <td><img src="{{generos.imgSong}}" alt="" width="50px"></td>
+                        <td><img src="{{generos.idAlbum.photo}}" alt="" width="50px"></td>
 
-                        <td (click)="favEstado(true); getFavoritos(generos._id)"  *ngIf="!favoritosEstado; else elseFav"  id="fav">
-                            <i  class="far fa-heart fa-2x"></i>
+                        <td id="fav">
+                            <i class="cod fas fa-plus-square fa-2x" (click)="getFavoritos(generos._id)"></i>
+                            <i class="fas fa-minus-square fa-2x" (click)="removeFavoritos(generos._id)" ></i>
                         </td>
-
-                        <ng-template #elseFav>
-                            <td (click)="favEstado(false)"><i class="fas fa-heart fa-2x"></i></td>
-                        </ng-template>
 
                         <td>{{generos.nameSong}}</td>
                         <td>{{generos.idAuthor.user}}</td>
                         <td>{{generos.idAlbum.nameAlbum}}</td>
 
                         <td *ngIf="!estados; else elseBlock" (click)="enviarCancion(generos);estado(true)"
-                             class="cambiarColor">
+                            class="cambiarColor">
 
                             <i *ngIf="i!==posiciones" class="far fa-play-circle fa-2x " style="cursor: pointer;"
                                 (click)="posicion(i)"></i>
@@ -58,6 +56,7 @@
 
                                 <i *ngIf="i===posiciones else play" class="far fa-pause-circle fa-2x"
                                     style="cursor: pointer;"></i>
+
                                 <ng-template #play>
                                     <i class="far fa-play-circle fa-2x " style="cursor: pointer;"
                                         (click)="posicion(i)"></i>

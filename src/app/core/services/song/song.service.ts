@@ -29,31 +29,46 @@ export class SongService {
   postSong(song: any) {
     const url = 'https://bictiamusic.herokuapp.com/song';
     let token = localStorage.getItem('token');
+
     const h = new HttpHeaders({
       'Authorization': 'Bearer ' + token
     })
-    console.log('posting')
+    console.log('posting', h)
 
     return this.http.post(url, song, { headers: h })
 
   }
 
-  postFavoritos(idFav: string) {
-
-    const url = `${this.url}/addFavorite/${idFav}`
+  patchFavoritos(idUser: string, idSong:string) {
 
     let token = localStorage.getItem('token');
 
     const h = new HttpHeaders({
       'Authorization': 'Bearer ' + token
     })
-    console.log('AddFavoritos')
+    console.log('AddFavoritos', h)
 
-    return this.http.post<any>(url, { headers: h })
+    return this.http.patch<any>(`${this.url}/user/addFavorite/${idUser}`, { "favSong" : idSong } ,{ headers: h })
+  }
+
+  removeFavoritos(idUser: string, idSong:string) {
+
+    let token = localStorage.getItem('token');
+
+    const h = new HttpHeaders({
+      'Authorization': 'Bearer ' + token
+    })
+    console.log('Remove')
+
+    return this.http.patch<any>(`${this.url}/user/removeFavorite/${idUser}`, { "favSong" : idSong } ,{ headers: h })
   }
 
   getArtistas(){
     return this.http.get<any>(`${this.url}/user/artist`)
+  }
+
+  getFavoritos(id:string){
+    return this.http.get<any>(`${this.url}/user/userbyid/${id}`)
   }
 
 }
