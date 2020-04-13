@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccountComponent } from 'src/app/management/components/account/account.component';
 
 @Component({
   selector: 'app-header',
@@ -15,9 +16,7 @@ export class HeaderComponent implements OnInit {
   };
   
 
-  
   constructor(private router:Router) {
-  
    }
 
   ngOnInit(): void {
@@ -25,11 +24,7 @@ export class HeaderComponent implements OnInit {
 
 
   logout(){
-    localStorage.removeItem('token')
-    localStorage.removeItem('dataUser')
-    localStorage.removeItem('imagen')
-    localStorage.removeItem('id')
-    localStorage.removeItem('artista') 
+    localStorage.clear()
     this.router.navigate(['/auth/login'])
   }
 

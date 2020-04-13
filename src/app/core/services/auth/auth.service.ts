@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { User } from 'src/app/interface/user.interfece';
 import { Router } from '@angular/router';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable({providedIn: 'root'})
 export class AuthService {
 
   /*
@@ -23,12 +22,15 @@ export class AuthService {
   
       return this.http.get(url, { headers })
     }*/
-
   private url = 'https://bictiamusic.herokuapp.com'
   //private url = 'http://localhost:3000'
+  //public sessionData: SessionData;
+
 
   constructor(private http: HttpClient,
-    private router: Router) { }
+    private router: Router) {
+    }
+
 
   getUser() {
     return this.http.get(this.url + '/user')
@@ -61,5 +63,11 @@ export class AuthService {
       return false
     }
   }
-
+  updateUser(id:string, user: any){
+    let header = new HttpHeaders({'Authorization': 'Bearer ' + localStorage.getItem('token')});
+      //header.set( "Authorization", "Bearer "+localStorage.getItem('token'));
+      console.log('mostrando '+ localStorage.getItem('token'));
+      console.log ('datos '+user.user, user.email, user.firstName, user.lastName);
+      return this.http.patch(this.url + '/user/edituser/' + id, user,{ headers : header})
+  }
 }

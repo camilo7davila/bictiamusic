@@ -17,8 +17,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     ManagementRoutingModule,
     RouterModule,
-    ReactiveFormsModule,
-    FormsModule
+    ReactiveFormsModule
   ]
 })
 export class ManagementModule { }

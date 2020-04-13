@@ -37,7 +37,8 @@ export class SongService {
     const h = new HttpHeaders({
       'Authorization': 'Bearer ' + token
     })
-    console.log('posting', h)
+    console.log('posting')
+    console.log(h)
 
     return this.http.post(url, song, { headers: h })
 

@@ -1,94 +1,100 @@
-<div class="container">
-  <h2>Editar Perfil</h2>
-  <br>
-  <div class="row">
-    <div class="col">
-      <div class="data-update">
-        <h4>Info de Usuario</h4>
-        <form class="form">
-          <div class="container">
-            <div class="form-group">
-              <label for="name" class="control-label col-md-6">Nombre usuario: </label>
-              <div class="col-md-10">
-                <input class="form-control" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email" class="control-label col-md-4">Correo: </label>
-              <div class="col-md-10">
-                <input class="form-control" type="mail">
-              </div>
-            </div>
-            <div class="container row form-group">
-              <div class="col-md-3">
-                <label for="age">Edad: </label>
-                <input class="form-control" type="number">
-              </div>
-              <div class="col-md-7">
-                <label for="option">Sexo: </label>
-                <select class="form-control" id="option">
-                  <option value="">Femenino</option>
-                  <option value="">Masculino</option>
-                  <option value="">Otro...</option>
-                </select>
-              </div>
-            </div>
-            <div class="container row">
-              <button class="btn offset-8">Guardar</button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <br>
-      <div class="password-update">
-        <h4>Cambiar Contraseña</h4>
-        <form class="form">
-          <div class="container">
-            <div class="form-group">
-              <label for="name" class="control-label col-md-4">Actual: </label>
-              <div class="col-md-10">
-                <input class="form-control" type="password">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email" class="control-label col-md-4">Nueva: </label>
-              <div class="col-md-10">
-                <input class="form-control" type="password">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="age" class="control-label col-md-4">Repetir: </label>
-              <div class="col-md-10">
-                <input class="form-control" type="password">
-              </div>
-            </div>
-
-            <button class="btn offset-8">Guardar</button>
-          </div>
-        </form>
-      </div>
-    </div>
+<div class="container general">
+    <h4>Editar Perfil</h4>
     <br>
-
-    <div class="picture-update col">
-      <h4>Imágen de Perfil</h4>
-      <form class="">
-        <div class="container">
-          <div class="form-group">
-            <label for="name" class="control-label col-md-4"></label>
-            <div class="col-md-10">
-              <input class="form-control" type="text">
+    <div class="row">
+        <div class="col">
+            <div class="data-update">
+                <h6>Info de Usuario</h6>
+                <form class="form" [formGroup]="form" novalidate (ngSubmit)="UpdateUser()">
+                    <div class="container">
+                        <div class="form-group">
+                            <label for="name" class="control-label col-md-6">Nombre usuario: </label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" formControlName="name"
+                                    [(ngModel)]="changeName.user">
+                            </div>
+                            <div class="alert alert-danger p-1 text-center mt-1 col-md-10" role="alert"
+                                *ngIf="form.get('name').hasError('required')"> El nombre de usuario es requerido
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="control-label col-md-4">Correo: </label>
+                            <div class="col-md-10">
+                                <input placeholder="Confirma tu correo" class="form-control" type="text" formControlName="email"
+                                    [(ngModel)]="changeName.email" (keyup)="updateBool($event)">
+                            </div>
+                            <div class="alert alert-danger p-1 text-center mt-1 col-md-10" role="alert"
+                                *ngIf="form.get('email').hasError('email') && form.get('email').touched">
+                                El email no es valido
+                            </div>
+                        </div>
+                        <div class="container row form-group">
+                            <div class="col-md-5">
+                                <label for="firstName">Nombre: </label>
+                                <input class="form-control" type="text" formControlName="firstName"
+                                    [(ngModel)]="changeName.firstName">
+                            </div>
+                            <div class="col-md-5 ml-4">
+                                <label for="lastName">Apellido: </label>
+                                <input class="form-control" type="text" formControlName="lastName"
+                                    [(ngModel)]="changeName.lastName">
+                            </div>
+                        </div>
+                        <div class="container row">
+                            <button class="btn offset-8" [disabled]="form.invalid">Guardar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-          </div>
-          <button class="btn offset-8">Buscar</button>
-          <div class="container imagen">
-            <div class="imagen-profile">
+            <br>
+            <div class="password-update">
+                <h6>Cambiar Contraseña</h6>
+                <form class="form" [formGroup]="passForm" novalidate (ngSubmit)="ConfirmPassword()">
+                    <div class="container">
+                        <div class="form-group">
+                            <label for="email" class="control-label col-md-4">Nueva: </label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="password" formControlName="newPassword" (keyup)="updateBool($event)">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="age" class="control-label col-md-4">Repetir: </label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="password" formControlName="confirmPassword" (keyup)="updateBool($event)">
+                            </div>
 
+                        </div>
+                        <div class="mt-2 alert alert-danger p-1 text-center mt-1 col-md-10" role="alert"
+                            *ngIf="passForm.get('newPassword').value !== passForm.get('confirmPassword').value">
+                            Las contraseñas no coinciden</div>
+                    </div>
+
+                    <button type="submit" class="btn offset-8" [disabled]=" !canChangePwd ">Guardar</button>
+
+                </form>
             </div>
-          </div>
-          <button class="btn offset-8">Guardar</button>
         </div>
-      </form>
+        <br>
+
+        <div class="picture-update col">
+            <h6>Imágen de Perfil</h6>
+            <form class="" [formGroup]="imgForm" (ngSubmit)="confirmImg()">
+                <div class="container">
+                    <div class="form-group">
+                        <label for="Imagen" class="control-label col-md-6"> Imagen: </label>
+                        <div class="col-md-12">
+                          <input #img class="form-control" type="file" (change)='uploadImg($event)' hidden="hidden">
+                          <input type="text" [value]="fileName" class="form-control" disabled>
+                          <button class="btn" type="button" (click)="img.click()">Examinar</button>
+                        </div>
+                      </div>
+                    <div class="container imagen">
+                        <div class="imagen-profile">
+                            <img [src]="prevImg" alt="">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn offset-8">Guardar</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
-</div>

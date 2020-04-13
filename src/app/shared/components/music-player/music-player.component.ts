@@ -22,6 +22,7 @@ export class MusicPlayerComponent implements OnInit {
   autorun: string = 'autoplay'
   author: string = 'Artista'
   songName: string = 'Nombre de la Canción'
+  imgSrc: string = 'assets/img/default-cd.png'
 
   constructor(public playService: ConexionesService
   ) { }
@@ -37,19 +38,20 @@ export class MusicPlayerComponent implements OnInit {
         this.author = this.song.idAuthor.user
         this.songName = this.song.nameSong
         this.state = 'pause'
-        
+        this.imgSrc = this.song.idAlbum.photo
+
       })
 
     this.estaReproduciendo()
 
     this.player.addEventListener('timeupdate', () => {
-      this.currentTime = this.parseTime(this.player.currentTime  || 0)
+      this.currentTime = this.parseTime(this.player.currentTime || 0)
       this.totalTime = this.parseTime(this.player.duration || 0)
       let position = this.player.currentTime / this.player.duration
       this.fillBar.style.width = (position * 100) + '%';
     })
   }
-  
+
   changePos($event) {
     let pos = $event.offsetX / $event.target.offsetWidth
     if (this.player.currentSrc !== '') {
@@ -61,15 +63,15 @@ export class MusicPlayerComponent implements OnInit {
     if (this.player.currentSrc !== '') {
       this.player.volume = pos
       this.volFill.style.width = pos * 100 + '%'
-      if(pos < 0.1) this.volIcon = 'off'
+      if (pos < 0.1) this.volIcon = 'off'
       else if (pos < 0.5) this.volIcon = 'down'
       else this.volIcon = 'up'
     }
   }
 
   setVol() {
-    if(this.player.currentSrc !== '') {
-      if(this.volIcon == 'up') {
+    if (this.player.currentSrc !== '') {
+      if (this.volIcon == 'up') {
         this.player.volume = 0
         this.volFill.style.width = '0%'
         this.volIcon = 'off'
@@ -107,19 +109,22 @@ export class MusicPlayerComponent implements OnInit {
     let sf = '', mf = ''
     let mm = date.getUTCMinutes();
     let ss = date.getSeconds();
-    if(mm < 10) mf = '0'
-    if(ss < 10) sf = '0'
+    if (mm < 10) mf = '0'
+    if (ss < 10) sf = '0'
     return mf + mm + ":" + sf + ss;
   }
 
   pSong() {
     let player = this.player
-    if (player.paused) {
-      this.state = "pause"
-      player.play()
-    } else {
-      this.state = "play"
-      player.pause()
+    if (player.currentSrc !== '') {
+
+      if (player.paused) {
+        this.state = "pause"
+        player.play()
+      } else {
+        this.state = "play"
+        player.pause()
+      }
     }
   }
 
