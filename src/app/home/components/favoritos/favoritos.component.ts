@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SongService } from 'src/app/core/services/song/song.service';
+import { ConexionesService } from 'src/app/core/services/conexiones/conexiones.service';
 
 @Component({
   selector: 'app-favoritos',
@@ -10,7 +11,8 @@ export class FavoritosComponent implements OnInit {
 
   favoritos:any[]=[]
 
-  constructor(private songService:SongService) { 
+  constructor(private songService:SongService,
+    private playService: ConexionesService) { 
     this.getFavoritos()
   }
 
@@ -25,6 +27,10 @@ export class FavoritosComponent implements OnInit {
       console.log(data.message[0].favSong)
     })
   }
+  reproducir(termino:any){
 
+    console.log(termino)
+    this.playService.reproducir$.emit(termino)
+  }
 
 }

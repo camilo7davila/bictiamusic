@@ -23,6 +23,7 @@
                         <th>Imagen</th>
                         <th><i class="fas fa-heart fa-1x"></i></th>
                         <th>Canción</th>
+                        <!--<th>Artista</th>-->
                         <th>Album</th>
                         <th>Reproducir</th>
                     </tr>
@@ -33,8 +34,8 @@
                         <td><img src="{{generos.idAlbum.photo}}" alt="" width="50px"></td>
 
                         <td id="fav">
-                            <i class="cod fas fa-plus-square fa-2x" (click)="getFavoritos(generos._id)"></i>
-                            <i class="fas fa-minus-square fa-2x" (click)="removeFavoritos(generos._id)" ></i>
+                            <i class="cod fas fa-plus-square fa-2x" (click)="getFavoritos(generos._id)" style="cursor: pointer;"></i>
+                            <i class="fas fa-minus-square fa-2x" (click)="removeFavoritos(generos._id)" style="cursor: pointer;"></i>
                         </td>
                         <td>{{generos.nameSong}}</td>
                         <!--<td>{{generos.idAuthor.user}}</td>-->

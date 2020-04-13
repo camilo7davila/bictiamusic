@@ -8,7 +8,7 @@
         <div class="col mt-4" *ngFor="let favorito of favoritos">
           <div class="card " style="width: 16rem;">
 
-            <div class="cont-img" >
+            <div class="cont-img" (click)="reproducir(favorito)" >
                 <img src="{{favorito.idAlbum.photo}}" alt="" class="card-img-top ">
               <img src="assets/img/play.jpg" alt="" class="card-img-top play ">
             </div>
