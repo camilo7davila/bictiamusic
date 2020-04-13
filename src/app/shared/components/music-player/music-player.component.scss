@@ -6,9 +6,10 @@ $BitBlue: #1d7ace;
     
     color:white;
     border: #222 20px solid;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 35% 55% 10%;
+    //justify-content: space-between;
+    
     
     
     .songInfo {
@@ -17,8 +18,8 @@ $BitBlue: #1d7ace;
         align-items: center;
         
         img {
-            width: 3rem;
-            margin-right: 10px;
+            width: 5rem;
+            margin: 0 10px;
         }
         p {
             margin-top: 10px;
@@ -26,12 +27,15 @@ $BitBlue: #1d7ace;
         }
     }
     
+    .row-info{
+        display: block;
+    }
     
     .player {
         transform: translate(30%);
         display: flex;
         flex-direction: column;
-        margin-top: -10px;
+        margin:auto;
 
         .controls {
             display: flex;
@@ -40,10 +44,14 @@ $BitBlue: #1d7ace;
                 transform: translate(-50%);
                 cursor: pointer;
                 transition: 0.3s;
+                font-size: 2.7em;
+                margin: 5px;
+                text-shadow: 2px 4px 18px $BitBlue ;
             }
 
             i:hover {
                 color: $BitBlue;
+                text-shadow: 2px 2px 25px white ;
             }
         }
         
@@ -52,9 +60,10 @@ $BitBlue: #1d7ace;
             
             display: flex;
             transform: translate(-50%);
+            justify-content: center;
 
             #backBar {
-                width: 600px;
+                width: 75vh;
                 height: 5px;
                 background-color: lightgray;
                 margin: 10px;
@@ -86,6 +95,7 @@ $BitBlue: #1d7ace;
     .volume {
         display: flex;
         flex-direction: row;
+        align-items: center;
         margin-top: 10px;
         margin-right: 20px;
 
@@ -124,8 +134,38 @@ $BitBlue: #1d7ace;
                 margin-left: -5px;
                 margin-top: -1px;
                 transform: scale(2);
+                cursor: pointer;
             }
         }
 
     }
 }
+
+
+@media screen and (max-width: 720px){
+
+    .volume, .fa-lg {
+        display: none;
+    }
+    #volFill, #volHandle{
+        display: none;
+    }
+    #volBar{
+        display: contents;
+    }
+
+    .playerContainer{
+        grid-template-columns: 50% 50%;
+    }
+    
+    #backBar, #bar{
+        width: 50vh;
+    }
+    .player span{
+        font-size: 12px;
+    }
+
+    }
+   
+  
+   
