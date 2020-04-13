@@ -6,6 +6,7 @@ import { GenerosComponent } from './components/generos/generos.component';
 import { ArtistasComponent } from './components/artistas/artistas.component';
 import { AboutComponent } from './components/about/about.component';
 import { GeneroDetalleComponent } from './components/generos/generoDetalle/genero-detalle/genero-detalle.component';
+import { ArtistaDetalleComponent } from './components/artistas/artistasDetalle/artista-detalle/artista-detalle.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path:'artistas',
     component: ArtistasComponent
+  },
+  {
+    path:'artistadetalle/:id', 
+    component: ArtistaDetalleComponent
   },
   {
     path:'about',

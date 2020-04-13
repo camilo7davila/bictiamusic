@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SongService } from 'src/app/core/services/song/song.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-artistas',
@@ -8,22 +9,30 @@ import { SongService } from 'src/app/core/services/song/song.service';
 })
 export class ArtistasComponent implements OnInit {
 
-  artistas:any[]=[]
+  artistas: any[] = []
 
-  constructor(private songService: SongService) {
-   
-   }
+  constructor(private songService: SongService,
+    private router: Router) {
+
+  }
 
   ngOnInit(): void {
-   this.getArtista()
+    this.getArtista()
   }
 
-  getArtista(){
+  getArtista() {
     this.songService.getArtistas()
-    .subscribe((data:any)=>{
-      this.artistas = data.message
-      console.log('Artistas',data.message)
-    })
+      .subscribe((data:any)=>{
+        console.log(data)
+        this.artistas = data.message
+      })
+    
   }
+  getArtistaId(id: string) {
+    console.log(id)
+    this.router.navigate([`/artistadetalle/${id}`])
+  }
+
+  
 
 }
