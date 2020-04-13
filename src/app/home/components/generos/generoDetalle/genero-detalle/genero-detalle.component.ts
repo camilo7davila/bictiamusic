@@ -25,6 +25,7 @@ export class GeneroDetalleComponent implements OnInit {
   public genero;
   public estados: false;
   public posiciones: 0;
+  public imagen;
 
 
   constructor(private songService: SongService,
@@ -51,6 +52,7 @@ export class GeneroDetalleComponent implements OnInit {
         console.log(data)
         this.generoDetalle = data.message
         this.genero = data.message[0].idGener.nameGener
+        this.imagen = data.message[0].idAlbum.photo
         console.log(data.message)
       })
   }
