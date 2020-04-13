@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SongService } from 'src/app/core/services/song/song.service';
 import { ActivatedRoute } from '@angular/router';
 import { ConexionesService } from 'src/app/core/services/conexiones/conexiones.service';
+import swal from 'sweetalert2'
 
 
 @Component({
@@ -11,19 +12,27 @@ import { ConexionesService } from 'src/app/core/services/conexiones/conexiones.s
 })
 export class GeneroDetalleComponent implements OnInit {
 
+  alertSweet: string = ''
+
   generoDetalle: any[] = [
 
   ]
+
+  addfavoritos: any[] = []
+
+
   private id;
   public genero;
   public estados: false;
   public posiciones: 0;
-  public favoritosEstado: false;
+
 
   constructor(private songService: SongService,
     private router: ActivatedRoute,
     private playService: ConexionesService
-  ) { }
+  ) { 
+    this.listadoFavoritos()
+  }
 
   ngOnInit(): void {
 
@@ -43,7 +52,6 @@ export class GeneroDetalleComponent implements OnInit {
         this.generoDetalle = data.message
         this.genero = data.message[0].idGener.nameGener
         console.log(data.message)
-
       })
   }
 
@@ -62,18 +70,32 @@ export class GeneroDetalleComponent implements OnInit {
     this.posiciones = posicion
   }
 
-  favEstado(estadoFav: any) {
-    this.favoritosEstado = estadoFav
-  }
-
-  getFavoritos(idFav: string) {
-    this.songService.postFavoritos(idFav)
+  getFavoritos(idSong: string) {
+    let user = localStorage.getItem('id')
+    
+    this.songService.patchFavoritos(user, idSong)
       .subscribe((data: any) => {
-        console.log('Favoritos ------>', data)
-      })
-
-    console.log(idFav)
+        console.log('Favoritos ------>', data.statusCode)
+        swal.fire('Se ha agregado correctamente',this.alertSweet,'success')
+      },err => swal.fire(`${err.error.error}`, this.alertSweet, 'warning'))
   }
 
+  removeFavoritos(idSong: string) {
+    let user = localStorage.getItem('id')
+    this.songService.removeFavoritos(user, idSong)
+      .subscribe((data: any) => {
+        swal.fire('Se ha removido correctamente',this.alertSweet,'success')
+        console.log('Remove fav ---->', data.statusCode)
+      })
+  }
+
+  listadoFavoritos(){
+    let id = localStorage.getItem('id')
+    this.songService.getFavoritos(id)
+    .subscribe((data:any)=>{
+      this.addfavoritos=data.message[0].favSong[0]._id
+      console.log('Listado fav->>>',data.message[0].favSong)
+    })
+  }
 
 }

@@ -14,10 +14,10 @@
                             <li class="li-second">
                                 <a class="a-second" [routerLink]="['/management/account']">Cuenta</a>
                             </li>
-                      
-                                <li class="li-second"  *ngIf="changeName.artista === 'true'">
-                                    <a class="a-second" [routerLink]="['/management/']">Tu librería</a>
-                                </li>
+
+                            <li class="li-second" *ngIf="changeName.artista === 'true'">
+                                <a class="a-second" [routerLink]="['/management/']">Tu librería</a>
+                            </li>
 
                             <li class="li-second">
                                 <a type="button" class="a-second" (click)="logout()">Cerrar sesión</a>
@@ -28,7 +28,7 @@
 
             </div>
             <div class="profile-img">
-                <img src="" alt="">
+                <img src="assets/img/default.png" alt="">
             </div>
         </div>
     </div>
