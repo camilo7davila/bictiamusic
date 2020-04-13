@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
           return songs.idGener.nameGener === 'Electronica'
         });
         
-        console.log(songsFilter)
+        // console.log(songsFilter)
       })
   }
 

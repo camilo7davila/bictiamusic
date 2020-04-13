@@ -34,12 +34,12 @@ export class MusicPlayerComponent implements OnInit {
     this.volFill = document.getElementById('volFill') as HTMLElement
     this.playService.reproducir$
       .subscribe(data => {
+        console.log('reproducir', data)
         this.song = data
         this.author = this.song.idAuthor.user
         this.songName = this.song.nameSong
         this.state = 'pause'
         this.imgSrc = this.song.idAlbum.photo
-
       })
 
     this.estaReproduciendo()
@@ -89,10 +89,7 @@ export class MusicPlayerComponent implements OnInit {
       .subscribe((data: any) => {
         this.estado = data
         console.log('Desde music', data)
-
         if (data) {
-          let prueba1 = document.getElementById('audio')
-          prueba1.setAttribute('autoplay', "")
           this.pSong()
         } else {
           if (!data) {

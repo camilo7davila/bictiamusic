@@ -32,16 +32,18 @@ $BitBlue: #1d7ace;
     }
     
     .player {
-        transform: translate(30%);
+        transform: translate(-30%);
         display: flex;
         flex-direction: column;
         margin:auto;
+        width: 600px;
 
         .controls {
             display: flex;
+            align-items: center;
+            justify-content: center;
 
             i {
-                transform: translate(-50%);
                 cursor: pointer;
                 transition: 0.3s;
                 font-size: 2.7em;
@@ -59,7 +61,6 @@ $BitBlue: #1d7ace;
         #bar {
             
             display: flex;
-            transform: translate(-50%);
             justify-content: center;
 
             #backBar {
