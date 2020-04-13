@@ -23,7 +23,7 @@ export class ArtistasComponent implements OnInit {
   getArtista() {
     this.songService.getArtistas()
       .subscribe((data:any)=>{
-        console.log(data)
+        console.log('arstistas---->',data)
         this.artistas = data.message
       })
     
