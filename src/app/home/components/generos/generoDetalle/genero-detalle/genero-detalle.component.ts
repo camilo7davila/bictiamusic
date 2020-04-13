@@ -52,7 +52,7 @@ export class GeneroDetalleComponent implements OnInit {
         console.log(data)
         this.generoDetalle = data.message
         this.genero = data.message[0].idGener.nameGener
-        this.imagen = data.message[0].idAlbum.photo
+        this.imagen = data.message[0].idGener.image
         console.log(data.message)
       })
   }
