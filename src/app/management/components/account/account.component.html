@@ -78,21 +78,22 @@
 
         <div class="picture-update col">
             <h6>Imágen de Perfil</h6>
-            <form class="" [formGroup]="form">
+            <form class="" [formGroup]="imgForm" (ngSubmit)="confirmImg()">
                 <div class="container">
                     <div class="form-group">
-                        <label for="name" class="control-label col-md-4"></label>
-                        <div class="col-md-10">
-                            <input class="form-control" type="text">
+                        <label for="Imagen" class="control-label col-md-6"> Imagen: </label>
+                        <div class="col-md-12">
+                          <input #img class="form-control" type="file" (change)='uploadImg($event)' hidden="hidden">
+                          <input type="text" [value]="fileName" class="form-control" disabled>
+                          <button class="btn" type="button" (click)="img.click()">Examinar</button>
                         </div>
-                    </div>
-                    <button class="btn offset-8">Buscar</button>
+                      </div>
                     <div class="container imagen">
                         <div class="imagen-profile">
-                            <img alt="">
+                            <img [src]="prevImg" alt="">
                         </div>
                     </div>
-                    <button class="btn offset-8">Guardar</button>
+                    <button type="submit" class="btn offset-8">Guardar</button>
                 </div>
             </form>
         </div>
