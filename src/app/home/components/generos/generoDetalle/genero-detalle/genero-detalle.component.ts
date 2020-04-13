@@ -32,7 +32,7 @@ export class GeneroDetalleComponent implements OnInit {
     private router: ActivatedRoute,
     private playService: ConexionesService
   ) { 
-    this.listadoFavoritos()
+    
   }
 
   ngOnInit(): void {
@@ -91,13 +91,6 @@ export class GeneroDetalleComponent implements OnInit {
       })
   }
 
-  listadoFavoritos(){
-    let id = localStorage.getItem('id')
-    this.songService.getFavoritos(id)
-    .subscribe((data:any)=>{
-      this.addfavoritos=data.message[0].favSong[0]._id
-      console.log('Listado fav->>>',data.message[0].favSong)
-    })
-  }
+
 
 }
