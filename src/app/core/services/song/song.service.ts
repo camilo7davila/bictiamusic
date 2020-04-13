@@ -26,7 +26,7 @@ export class SongService {
     return this.http.get<any>(`${this.url}/search?type=2&id=${id}`)
   }
 
-  getFavoritoDetalle(id:string){
+  getArtistaDetalle(id:string){
     return this.http.get<any>(`${this.url}/search?type=3&id=${id}`)
   }
 

@@ -4,56 +4,52 @@ import { ActivatedRoute } from '@angular/router';
 import { ConexionesService } from 'src/app/core/services/conexiones/conexiones.service';
 import swal from 'sweetalert2'
 
-
 @Component({
-  selector: 'app-genero-detalle',
-  templateUrl: './genero-detalle.component.html',
-  styleUrls: ['./genero-detalle.component.scss']
+  selector: 'app-artista-detalle',
+  templateUrl: './artista-detalle.component.html',
+  styleUrls: ['./artista-detalle.component.scss']
 })
-export class GeneroDetalleComponent implements OnInit {
+export class ArtistaDetalleComponent implements OnInit {
 
-  alertSweet: string = ''
-
-  generoDetalle: any[] = [
+  artistaDetalle: any[] = [
 
   ]
 
   addfavoritos: any[] = []
 
- 
+  alertSweet: string = ''
+
   private id;
   public genero;
   public estados: false;
   public posiciones: 0;
-
+  public imagen;
+  public artista;
 
   constructor(private songService: SongService,
     private router: ActivatedRoute,
-    private playService: ConexionesService
-  ) { 
-    this.listadoFavoritos()
-  }
+    private playService: ConexionesService) { }
 
   ngOnInit(): void {
-
     this.router.params.subscribe((data: any) => {
       this.id = data.id
     })
 
-    this.getGeneroDetalle()
+    this.getArtistaDetalle()
     this.estados
-
   }
 
-  getGeneroDetalle() {
-    this.songService.getGeneroDetalle(this.id)
-      .subscribe((data) => {
-        console.log(data)
-        this.generoDetalle = data.message
-        this.genero = data.message[0].idGener.nameGener
+  getArtistaDetalle() {
+    this.songService.getArtistaDetalle(this.id)
+      .subscribe((data:any)=>{
+        this.artistaDetalle = data.message
+        this.imagen = data.message[0].idAlbum.photo
+        this.artista = data.message[0].idAuthor.user
         console.log(data.message)
       })
   }
+
+  // COMIENZA COPIA DE GENERO DETALLE //
 
   enviarCancion(cancion: any) {
     console.log(cancion)
@@ -97,5 +93,7 @@ export class GeneroDetalleComponent implements OnInit {
       console.log('Listado fav->>>',data.message[0].favSong)
     })
   }
+
+  // FIN COPIA GENERO DETALLE
 
 }
