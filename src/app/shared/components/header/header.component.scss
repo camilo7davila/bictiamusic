@@ -41,6 +41,8 @@
     margin-left: -10px;  
     width: 100px;
     z-index: 1;
+    width: 80%;
+    height: 80%;
 }
 
 .profile-img img{
@@ -49,7 +51,7 @@
 }
 
 
-.icon-user{
+.icon{
     display: none;
 }
 ul{
@@ -135,9 +137,10 @@ button:hover{
     .UserName{
         display: none;
     }
-    .icon-user{
+    .icon{
         display: block;
         font-size: 30px;
+        margin: 15px;
     }
     .profile{
         width: 15%;
@@ -154,11 +157,6 @@ button:hover{
         width: 80%;
     }
     .sesion{
-        top: 5px;
-        border-radius: 100%;
-        width:60px;
-        height: 60px;
-        align-items: center;
-        padding: 0;
+        display: none;
     }
 }

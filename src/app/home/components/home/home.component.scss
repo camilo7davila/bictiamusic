@@ -1,6 +1,7 @@
 .container{
     animation-name: fadeInRight;
     animation-duration: 2s;
+
 }
 
 .carousel-item img{
@@ -38,8 +39,12 @@
 
 
 @media screen and (max-width: 720px){
+    .container{
+        text-align: -webkit-center;
+    }
+
     .carousel-item img{
-        height: 100px;
-        margin: 5%;
+        height: 10px;
+    
     }
 }

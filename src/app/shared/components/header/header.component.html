@@ -1,15 +1,20 @@
 <div class="body">
+    
     <div class="header">
+        <div>
+            <img class="icon" src="../../../../assets/img/menu.svg" width="30px">
+        </div>
         <div class="buscar">
             <input class="busca" type="text">
             <button height="10px"><i class="icon-search"></i></button>
         </div>
         <div class="profile">
+            <i class="icon icon-user"></i>
             <div class="sesion">
                 <ul class="ul-first">
                     <li class="li-first">
                         <label class="a-first UserName" href="#">{{changeName.name}}</label>
-                        <a class="a-first" href="#"><i class="icon-user"></i></a>
+                        <a class="a-first" href="#"></a>
                         <ul class="second">
                             <li class="li-second">
                                 <a class="a-second" [routerLink]="['/management/account']">Cuenta</a>

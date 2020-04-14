@@ -157,10 +157,18 @@ $BitBlue: #1d7ace;
 
     .playerContainer{
         grid-template-columns: 50% 50%;
+        border-top: 10px;
+    }
+
+    .controls i{
+        padding-top: 10px;
+        padding-left: 15%;
     }
     
     #backBar, #bar{
-        width: 50vh;
+        width: 40vh;
+        margin-top: 10px;
+        margin-left: 16%;
     }
     .player span{
         font-size: 12px;
